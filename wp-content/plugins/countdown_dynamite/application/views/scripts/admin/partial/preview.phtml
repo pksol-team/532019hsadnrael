@@ -1,0 +1,23 @@
+<div id="ucd-countdown-preview-container"
+    class="ucd-form-field ucd-countdown-container"
+>
+    <?php
+        $widget = Ucd_Application::getModel('Block_Widget')->setPreviewPostId($postId);
+
+        echo $this->partial('shortcode/template.phtml', array(
+            'widget' => $widget,
+            'id' => 'preview',
+        ));
+    ?>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        jQuery(function($) {
+            var options = <?php echo json_encode($widget->getDefaultOptions()); ?>;
+
+            var now = new Date();
+            options.targetDate = new Date(now.getTime() + <?php echo 1000 * Ucd_Application::getConfig()->counter->duration->max->value; ?>);
+            $('#ucd-countdown-preview').ucd_countDown(options);
+        });
+    /* ]]> */
+    </script>
+</div>

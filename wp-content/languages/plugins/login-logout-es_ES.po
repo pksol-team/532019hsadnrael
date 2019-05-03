@@ -1,0 +1,114 @@
+# Translation of Plugins - Login-Logout - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Login-Logout - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-01-21 13:01:41+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Login-Logout - Stable (latest release)\n"
+
+#: login-logout.php:15
+msgid "Login-Logout widget"
+msgstr "Widget de autenticación-desconexión"
+
+#. #-#-#-#-#  tmp-login-logout.pot (Login-Logout 3.4)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: login-logout.php:16
+msgid "Login-Logout"
+msgstr "Autenticación-desconexión"
+
+#: login-logout.php:23
+msgid "Log in"
+msgstr "Autenticación"
+
+#: login-logout.php:24
+msgid "Log out"
+msgstr "Desconexión"
+
+#: login-logout.php:26
+msgid "Welcome [username]"
+msgstr "Bienvenido [username]"
+
+#: login-logout.php:28
+msgid "Register"
+msgstr "Registrarse"
+
+#: login-logout.php:30
+msgid "Admin section"
+msgstr "Sección de Administración"
+
+#: login-logout.php:176
+msgid "Title"
+msgstr "Título"
+
+#: login-logout.php:180
+msgid "Login text"
+msgstr "Texto de autenticación"
+
+#: login-logout.php:184
+msgid "Logout text"
+msgstr "Texto de Desconexión"
+
+#: login-logout.php:189
+msgid "Show welcome text if user is logged in"
+msgstr "Mostrar texto de bienvenida si el usuario está logueado"
+
+#: login-logout.php:192
+msgid "Welcome text (use [username] for showing the name of the logged user)"
+msgstr "Texto de Bienvenida (utilice [username] para mostrar el nombre del usuario autenticado)"
+
+#: login-logout.php:197
+msgid "Show register link (if user is logged out and if users can register)"
+msgstr "Mostrar el enlace de registro (si el usuario está desconectado y si los usuarios se pueden registrar)"
+
+#: login-logout.php:200
+msgid "Register text"
+msgstr "Texto de Registro"
+
+#: login-logout.php:205
+msgid "Show admin link (if user is logged in)"
+msgstr "Mostrar enlace de administración (si los usuarios están autenticados)"
+
+#: login-logout.php:208
+msgid "Admin text"
+msgstr "Texto de la administración"
+
+#: login-logout.php:212
+msgid "Redirect to this page after login"
+msgstr "Redireccionar a esta página después de autenticarse"
+
+#: login-logout.php:216
+msgid "Redirect to this page after logout"
+msgstr "Redireccionar a esta página después de desconectarse"
+
+#: login-logout.php:221
+msgid "Inline (list or line of links)"
+msgstr "En línea (lista o línea de enlaces)"
+
+#: login-logout.php:224
+msgid "Extra item when user is logged in"
+msgstr "Elemento extra cuando el usuario está autenticado"
+
+#: login-logout.php:228
+msgid "Extra item when user is logged out"
+msgstr "Elemento extra cuando el usuario está desconectado"
+
+#. Author URI of the plugin/theme
+msgid "http://web-profile.com.ua/wordpress/plugins/"
+msgstr "http://web-profile.com.ua/wordpress/plugins/"
+
+#. Author of the plugin/theme
+msgid "webvitaly"
+msgstr "webvitaly"
+
+#. Description of the plugin/theme
+msgid "Show login or logout link. Show register or site-admin link. It is the replacement of the default Meta widget."
+msgstr "Muestra el enlace de iniciar o cerrar sesión. Muestra el enlace al registro a al escritorio. Es el reemplazo de del widget Meta predeterminado."
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/login-logout/"
+msgstr "http://wordpress.org/plugins/login-logout/"

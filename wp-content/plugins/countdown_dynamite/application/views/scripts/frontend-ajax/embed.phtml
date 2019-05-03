@@ -1,0 +1,186 @@
+(function() {
+    function init() {
+        jQuery(function($) {
+            function start() {
+                var html = str_replace('{countdownId}', countdownId, '<?php
+                    $embed = TRUE;
+                    $this->addSlashes()->start();
+                    require dirname(__FILE__) . '/../counter.phtml';
+                    $this->addSlashes()->finish();
+                ?>');
+                $('#ucd-placeholder-' + countdownId).html(html);
+            }
+
+            if ('undefined' == typeof $.fn.ucd_countDown) {
+                $(window).on('ucd_countDown-loaded', start);
+            } else {
+                start();
+            }
+
+            if ('undefined' == typeof window.ucd_jsLoaded) {
+                loadJs('<?php echo Ucd_WpPlugin::getPluginBaseUrl(); ?>js/jquery/countdown.js');
+                loadJs('<?php echo Ucd_WpPlugin::getPluginBaseUrl(); ?>js/frontend.js');
+
+                window.ucd_jsLoaded = true;
+            }
+        });
+    }
+
+    function loadJs(url, callback) {
+        var ref = document.createElement('script');
+        ref.setAttribute('type', 'text/javascript');
+        ref.setAttribute('src', url);
+
+        var head = document.getElementsByTagName('head')[0],
+            done = false;
+
+        // Attach handlers for all browsers
+        ref.onload = ref.onreadystatechange = function() {
+            if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+                done = true;
+                // callback function provided as param
+                if (undefined !== callback) {
+                    callback();
+                }
+
+                ref.onload = ref.onreadystatechange = null;
+                //head.removeChild(ref);
+            };
+        };
+
+        head.appendChild(ref);
+    }
+
+    function loadCss(url, callback) {
+        var ref = document.createElement('link');
+        ref.setAttribute('rel', 'stylesheet');
+        ref.setAttribute('type', 'text/css');
+        ref.setAttribute('href', url);
+
+        var head = document.getElementsByTagName('head')[0],
+        done = false;
+
+        // Attach handlers for all browsers
+        ref.onload = ref.onreadystatechange = function() {
+            if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+                done = true;
+                // callback function provided as param
+                if (undefined !== callback) {
+                    callback();
+                }
+
+                ref.onload = ref.onreadystatechange = null;
+                //head.removeChild(ref);
+            };
+        };
+
+        head.appendChild(ref);
+    }
+
+    function str_replace(search, replace, subject, count) {
+        //  discuss at: http://phpjs.org/functions/str_replace/
+        // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // improved by: Gabriel Paderni
+        // improved by: Philip Peterson
+        // improved by: Simon Willison (http://simonwillison.net)
+        // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // improved by: Onno Marsman
+        // improved by: Brett Zamir (http://brett-zamir.me)
+        //  revised by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
+        // bugfixed by: Anton Ongson
+        // bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // bugfixed by: Oleg Eremeev
+        //    input by: Onno Marsman
+        //    input by: Brett Zamir (http://brett-zamir.me)
+        //    input by: Oleg Eremeev
+        //        note: The count parameter must be passed as a string in order
+        //        note: to find a global variable in which the result will be given
+        //   example 1: str_replace(' ', '.', 'Kevin van Zonneveld');
+        //   returns 1: 'Kevin.van.Zonneveld'
+        //   example 2: str_replace(['{name}', 'l'], ['hello', 'm'], '{name}, lars');
+        //   returns 2: 'hemmo, mars'
+
+        var i = 0,
+        j = 0,
+        temp = '',
+        repl = '',
+        sl = 0,
+        fl = 0,
+        f = [].concat(search),
+        r = [].concat(replace),
+        s = subject,
+        ra = Object.prototype.toString.call(r) === '[object Array]',
+        sa = Object.prototype.toString.call(s) === '[object Array]';
+        s = [].concat(s);
+        if (count) {
+            this.window[count] = 0;
+        }
+
+        for (i = 0, sl = s.length; i < sl; i++) {
+            if (s[i] === '') {
+                continue;
+            }
+            for (j = 0, fl = f.length; j < fl; j++) {
+                temp = s[i] + '';
+                repl = ra ? (r[j] !== undefined ? r[j] : '') : r[0];
+                s[i] = (temp)
+                .split(f[j])
+                .join(repl);
+                if (count && s[i] !== temp) {
+                    this.window[count] += (temp.length - s[i].length) / f[j].length;
+                }
+            }
+        }
+        return sa ? s : s[0];
+    }
+
+    //
+    // Do not run if document already loaded
+    //
+    if ('loading' != document.readyState) {
+        return;
+    }
+
+    //
+    // Initialization
+    //
+
+    if ('undefined' == typeof window.ucd_nextCountdownId) {
+        var countdownId = 1;
+        window.ucd_nextCountdownId = 2;
+    } else {
+        var countdownId = window.ucd_nextCountdownId;
+        window.ucd_nextCountdownId++;
+    }
+
+    if ('undefined' == typeof window.ucd_cssLoaded) {
+        loadCss('<?php echo Ucd_WpPlugin::getPluginBaseUrl(); ?>css/countdown.css?ver=<?php echo Ucd_WpPlugin::VERSION; ?>');
+
+        window.ucd_cssLoaded = true;
+    }
+
+    var html = str_replace('{countdownId}', countdownId, '<?php
+        $this->addSlashes()->start();
+        require dirname(__FILE__) . '/embed/placeholder.phtml';
+        $this->addSlashes()->finish();
+    ?>');
+    document.write(html);
+
+    // Only do anything if jQuery isn't defined
+    if (typeof jQuery == 'undefined') {
+        loadJs('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', function() {
+            if (typeof jQuery=='undefined') {
+                // Super failsafe - still somehow failed...
+                alert("Could not load jQuery.");
+                return;
+            }
+
+            $.noConflict();
+            init();
+        });
+
+    } else { // jQuery was already loaded
+        // Run your jQuery Code
+        init();
+    }
+})();

@@ -1,0 +1,101 @@
+<?php
+if (!isset($embed)) {
+    $embed = FALSE;
+}
+?>
+<?php //$this->getHelper('StripNewLines')->start(); ?>
+<?php if (!$widget->isInvalid()): ?>
+    <?php if ('once' != $widget->getValue('expiration_type')): ?>
+        <?php if ($embed && !$widget->isExpired()): ?>
+            <?php $content = $widget->getValue('extra_content_above'); ?>
+            <?php if ('' != $content): ?>
+                <div id="ucd-countdown-<?php echo $countdownId; ?>-extra-content-above"
+                     class="ucd-countdown-content ucd-countdown-extra-content ucd-countdown-extra-content-above"
+                     data-countdown-id="<?php echo $countdownId; ?>"
+                     data-post-id="<?php echo $widget->getPostId(); ?>"
+                >
+                    <?php echo do_shortcode($content); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if (!$widget->isExpired() || $widget->getValue('action_keep_visible')): ?>
+            <span id="ucd-countdown-<?php echo $countdownId; ?>-container"
+                class="ucd-countdown-container"
+            >
+                <?php
+                    echo $this->partial('shortcode/template.phtml', array(
+                        'widget' => $widget,
+                        'id' => $countdownId,
+                    ));
+                ?>
+            </span>
+        <?php endif; ?>
+
+        <?php if ($embed && 'content' == $widget->getValue('action_type')): ?>
+            <div id="ucd-countdown-<?php echo $countdownId; ?>-content"
+                 class="ucd-countdown-action-content<?php if (!$widget->isExpired()): ?> ucd-countdown-content-hidden<?php endif; ?>"
+                 data-countdown-id="<?php echo $countdownId; ?>"
+                 data-post-id="<?php echo $widget->getPostId(); ?>"
+                >
+                    <?php echo do_shortcode($widget->getValue('action_content')); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($embed && !$widget->isExpired()): ?>
+            <?php $content = $widget->getValue('extra_content'); ?>
+            <?php if ('' != $content): ?>
+                <div id="ucd-countdown-<?php echo $countdownId; ?>-extra-content-below"
+                     class="ucd-countdown-content ucd-countdown-extra-content ucd-countdown-extra-content-below"
+                     data-countdown-id="<?php echo $countdownId; ?>"
+                     data-post-id="<?php echo $widget->getPostId(); ?>"
+                >
+                    <?php echo do_shortcode($content); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        jQuery(function($) {
+            function stopCounter() {
+                <?php if ('content' == $widget->getValue('action_type')): ?>
+                    $('.ucd-countdown-action-content[data-post-id="<?php echo $widget->getPostId(); ?>"]').slideDown();
+                    <?php if (!$widget->getValue('action_keep_visible')): ?>
+                        $('#ucd-countdown-<?php echo $countdownId; ?>').fadeOut(function() {
+                            $(this).remove();
+                        });
+                    <?php endif; ?>
+                <?php elseif ('redirect' == $widget->getValue('action_type') && $allowRedirect): ?>
+                    window.location.replace('<?php echo $widget->getValue('action_redirect_url'); ?>');
+                <?php endif; ?>
+
+                $('.ucd-countdown-extra-content[data-post-id="<?php echo $widget->getPostId(); ?>"]').slideUp(function() {
+                    $(this).remove();
+                });
+            };
+
+            <?php if ($widget->isExpired() && 'redirect' == $widget->getValue('action_type') && $allowRedirect): ?>
+                window.location.replace('<?php echo $widget->getValue('action_redirect_url'); ?>');
+                return;
+            <?php endif; ?>
+                var options = <?php echo json_encode($widget->getDefaultOptions()); ?>;
+                <?php if ('duration' == $widget->getValue('expiration_type') && $widget->isFirstVisit()): ?>
+                    var now = new Date();
+                    options.targetDate = new Date(now.getTime() + <?php echo 1000 * $widget->getValue('expiration_duration'); ?>);
+                <?php else: ?>
+                    options.targetDate = new Date(<?php echo 1000 * $widget->getExpirationTimestamp(); ?>);
+                <?php endif; ?>
+            <?php if (!$widget->isExpired()): ?>
+                options.callback = stopCounter;
+                $('#ucd-countdown-<?php echo $countdownId; ?>').ucd_countDown(options);
+            <?php else: ?>
+                stopCounter();
+            <?php endif; ?>
+        });
+    /* ]]> */
+    </script>
+<?php else: ?>
+    <i class="ucd-invalid">Countdown is not available.</i>
+<?php endif; ?>
+<?php //$this->getHelper('StripNewLines')->finish(); ?>

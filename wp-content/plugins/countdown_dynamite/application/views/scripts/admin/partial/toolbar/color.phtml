@@ -1,0 +1,57 @@
+<?php
+$elem = $form->getElement($name);
+$value = $elem->getValue();
+$empty = '' == $value;
+?>
+<button type="button"
+    id="ucd-<?php echo $name; ?>-button"
+    class="ucd-toolbar-button ucd-has-popup-menu ucd-toolbar-action-<?php echo $elem->getAttrib('-action'); ?> ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+    title="<?php echo $this->escape($elem->getLabel()); ?>"
+>
+    <span class="ucd-toolbar-icon"></span><span class="ucd-toolbar-down-icon"></span>
+    <div id="ucd-<?php echo $name;?>-preview"
+        class="ucd-toolbar-color-preview<?php if ($empty): ?> ucd-color-empty<?php endif; ?>"
+        <?php if (!$empty): ?>
+            style="background-color: <?php echo $this->escape($value); ?>"
+        <?php endif; ?>
+    >
+    </div>
+</button>
+<div class="ucd-colorpicker-popup ucd-popup-menu"
+    id="ucd-<?php echo $name; ?>-button-popup"
+>
+    <div class="ucd-colorpicker-popup-switch-container ucd-container">
+        <label for="ucd-<?php echo $name;?>-switch"
+            id="ucd-<?php echo $name;?>-switch-label"
+            class="ucd-colorpicker-popup-switch-label"
+        >
+            <input type="checkbox"
+                id="ucd-<?php echo $name;?>-switch"
+                class="ucd-colorpicker-popup-switch ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                <?php if ($empty): ?>
+                    checked="checked"
+                <?php endif; ?>
+            />
+            <span class="ucd-label-text"><?php echo $this->escape($elem->getAttrib('-empty-label')); ?></span>
+        </label>
+    </div>
+    <div class="ucd-colorpicker-popup-input-picker-container ucd-container">
+        <div class="ucd-colorpicker-popup-input-container ucd-container">
+            <input type="text"
+                id="ucd-<?php echo $name;?>"
+                name="<?php if (isset($formName)): ?><?php echo $formName;?>[<?php echo $name;?>]<? else: ?><?php echo $name;?><?php endif; ?>"
+                class="ucd-colorpicker-popup-input ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                value="<?php echo $empty? $this->escape($elem->getAttrib('-default')) : $this->escape($value); ?>"
+                data-default-value="<?php echo $this->escape($elem->getAttrib('-default')); ?>"
+                <?php if ($empty): ?>
+                    disabled="disabled"
+                <?php endif; ?>
+            />
+        </div>
+        <div id="ucd-<?php echo $name; ?>-colorpicker"
+            class="ucd-colorpicker"
+        >
+        </div>
+    </div>
+    <div class="ucd-colorpicker-popup-input-picker-cover<?php if (!$empty): ?> ucd-hidden<?php endif; ?>"></div>
+</div>

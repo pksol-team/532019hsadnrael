@@ -1,0 +1,205 @@
+/**
+* Countdown Dynamite widget CSS
+*/
+
+.ucd-countdown {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: middle;
+    padding: 0 0 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ucd-countdown .ucd-countdown-dash {
+    width: 110px;
+    height: 120px;
+    line-height: normal;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    background: transparent url('../images/countdown/dash.png') 0 0 no-repeat;
+    background-size: contain;
+    margin: 20px 20px 0 0;
+    position: relative;
+}
+
+.ucd-countdown .ucd-countdown-dash.ucd-countdown-dash-hidden {
+    display: none;
+}
+
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit {
+    display: block;
+    font-size: 73px;
+    float: left;
+    width: 55px;
+    text-align: center;
+    position: relative;
+}
+
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 94px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.ucd-countdown .ucd-countdown-dash_title {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    /*right: 6px;*/
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**
+* Small size
+*/
+
+.ucd-countdown.ucd-countdown-size-small {
+    padding: 0 0 4px 7px;
+    border-radius: 4px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash {
+    height: 45px;
+    width: 40px;
+    margin: 7px 7px 0 0;
+    background-image: url('../images/countdown/dash-small.png');
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 34px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 27px;
+    width: 20px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash_title {
+    font-size: 8px;
+}
+
+/**
+* Medium size
+*/
+
+.ucd-countdown.ucd-countdown-size-medium {
+    padding: 0 0 5px 10px;
+    border-radius: 5px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash {
+    height: 57px;
+    width: 53px;
+    margin: 10px 10px 0 0;
+    background-image: url('../images/countdown/dash-medium.png');
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 45px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 35px;
+    width: 26px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash_title {
+    font-size: 9px;
+}
+
+/**
+* Large size
+*/
+
+.ucd-countdown.ucd-countdown-size-large {
+    padding: 0 0 7px 13px;
+    border-radius: 7px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash {
+    height: 78px;
+    width: 72px;
+    margin: 13px 13px 0 0;
+    background-image: url('../images/countdown/dash-large.png');
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 62px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 48px;
+    width: 36px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash_title {
+    font-size: 12px;
+}
+
+/**
+* Extra stuff
+*/
+
+.ucd-countdown-container {
+    display: block;
+}
+
+.ucd-countdown-content {
+    display: block;
+}
+
+.ucd-countdown-content.ucd-countdown-content-hidden,
+.ucd-countdown-action-content.ucd-countdown-content-hidden {
+    display: none;
+}
+
+.ucd-countdown .ucd-clearfix {
+    display: block;
+    clear: both;
+}
+
+/**
+* AJAX placeholder
+*/
+.ucd-ajax-placeholder {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.ucd-ajax-placeholder-size-small {
+    width: 61px;
+    height: 61px;
+    background: url('../images/ajax-placeholder/small.gif');
+}
+.ucd-ajax-placeholder-size-medium {
+    width: 76px;
+    height: 76px;
+    background: url('../images/ajax-placeholder/medium.gif');
+}
+.ucd-ajax-placeholder-size-large {
+    width: 102px;
+    height: 102px;
+    background: url('../images/ajax-placeholder/large.gif');
+}
+.ucd-ajax-placeholder-size-xl {
+    width: 154px;
+    height: 154px;
+    background: url('../images/ajax-placeholder/xl.gif');
+}
+
+.ucd-invalid {
+    color: red;
+    font-style: italic;
+}

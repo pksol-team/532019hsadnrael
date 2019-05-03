@@ -1,0 +1,41 @@
+stages:
+- install_dependencies
+- test
+
+composer install:php56:
+  image: php:5.6-cli
+  stage: install_dependencies
+  before_script:
+  - apt-get update
+  - apt-get install -y git
+  - apt-get install -y wget
+  - mkdir bin
+  - chmod 755 bin
+  - wget https://phar.phpunit.de/phpunit-5.phar
+  - chmod +x phpunit-5.phar
+  - mv phpunit-5.phar bin/phpunit
+  - bin/phpunit -v
+  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  - php composer-setup.php
+  - php -r "unlink('composer-setup.php');"
+  script:
+  - php composer.phar install --prefer-dist --no-progress --optimize-autoloader
+  artifacts:
+    paths:
+    - vendor/
+    - bin/
+    expire_in: 2 hrs
+  except:
+  - develop
+
+test:app-php56:
+  image: php:5.6-cli
+  stage: test
+  tags:
+  - kubernetes-ci
+  script:
+  - bin/phpunit --configuration phpunit.xml --colors=never
+  except:
+  - develop
+  dependencies:
+  - composer install:php56

@@ -1,0 +1,163 @@
+# Copyright (C) 2012 Simple Login Log
+# This file is distributed under the same license as the Simple Login Log package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Login Log 0.9.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/simple-login-log\n"
+"POT-Creation-Date: 2012-05-22 19:12:22+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: simple-login-log.php:65 simple-login-log.php:820
+msgid "Successful"
+msgstr ""
+
+#: simple-login-log.php:66 simple-login-log.php:821
+msgid "Failed"
+msgstr ""
+
+#: simple-login-log.php:67
+msgid "Login"
+msgstr ""
+
+#: simple-login-log.php:68
+msgid "User Agent"
+msgstr ""
+
+#: simple-login-log.php:69
+msgid "Login Redirect"
+msgstr ""
+
+#: simple-login-log.php:70
+msgid "#"
+msgstr ""
+
+#: simple-login-log.php:71
+msgid "User ID"
+msgstr ""
+
+#: simple-login-log.php:72
+msgid "Username"
+msgstr ""
+
+#: simple-login-log.php:73
+msgid "User Role"
+msgstr ""
+
+#: simple-login-log.php:74
+msgid "Name"
+msgstr ""
+
+#: simple-login-log.php:75
+msgid "Time"
+msgstr ""
+
+#: simple-login-log.php:76
+msgid "IP Address"
+msgstr ""
+
+#: simple-login-log.php:77
+msgid "Login Result"
+msgstr ""
+
+#: simple-login-log.php:78
+msgid "Data"
+msgstr ""
+
+#: simple-login-log.php:128
+msgid "Records"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Simple Login Log 0.9.3)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: simple-login-log.php:339 simple-login-log.php:349
+msgid "Simple Login Log"
+msgstr ""
+
+#: simple-login-log.php:340
+msgid "Truncate Log Entries"
+msgstr ""
+
+#: simple-login-log.php:341
+msgid "Log Failed Attempts"
+msgstr ""
+
+#: simple-login-log.php:349 simple-login-log.php:501
+msgid "Login Log"
+msgstr ""
+
+#: simple-login-log.php:362
+msgid "days and older."
+msgstr ""
+
+#: simple-login-log.php:364
+msgid "Leave empty or enter 0 if you don't want the log to be truncated."
+msgstr ""
+
+#: simple-login-log.php:377
+msgid ""
+"Logs failed attempts where user name and password are entered. Will not log "
+"if at least one of the mentioned fields is empty."
+msgstr ""
+
+#: simple-login-log.php:511
+msgid "Username:"
+msgstr ""
+
+#: simple-login-log.php:511
+msgid "Filter User"
+msgstr ""
+
+#: simple-login-log.php:536
+msgid "Export Log to CSV"
+msgstr ""
+
+#: simple-login-log.php:545
+msgid "Export Current Results to CSV"
+msgstr ""
+
+#: simple-login-log.php:576
+msgid "View All"
+msgstr ""
+
+#: simple-login-log.php:577
+msgid "Filter"
+msgstr ""
+
+#: simple-login-log.php:678
+msgid "Filter log by this name"
+msgstr ""
+
+#: simple-login-log.php:692
+msgid "Filter log by User Role"
+msgstr ""
+
+#: simple-login-log.php:819
+msgid "Login Results"
+msgstr ""
+
+#: simple-login-log.php:819
+msgid "All"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://simplerealtytheme.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin keeps a log of WordPress user logins. Offers user filtering and "
+"export features."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Max Chirkov"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://SimpleRealtyTheme.com"
+msgstr ""

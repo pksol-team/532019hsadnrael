@@ -1,0 +1,363 @@
+.swift-hidden {
+      display: none !important;
+}
+
+#swift-image-init {
+      font-size: 1.2em;
+      text-align: center;
+}
+
+ul.swift-tiles {
+      list-style: none;
+}
+
+li.swift-tile {
+      width: 100%;
+      margin-top: 15px;
+      vertical-align: top;
+      display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+      li.swift-tile {
+            width: 33%;
+            margin-top: 0px;
+      }
+
+      li.swift-tile.wide {
+            width: 66%;
+      }
+}
+
+.swift-tiles:not(:last-of-type) {
+    margin-bottom: 45px;
+}
+
+.swift-tile > label {
+      display: block;
+      font-size: 1.3em;
+      text-align: center;
+      width: 100%;
+}
+
+#swift-image-optimizer-status-box label {
+      text-transform: uppercase;
+      line-height: 1.2em;
+}
+
+#swift-images-stat-container li {
+      display: inline-block;
+      width: 187px;
+      background: #f7f7f7;
+      padding: 5px;
+      text-align: center;
+}
+
+.swift-image-count {
+      display: block;
+      font-size: 2.3em;
+      line-height: 1em;
+      vertical-align: middle;
+}
+
+#swift-clear-image-queue {
+      position: absolute;
+      text-decoration: none;
+}
+
+#swift-performance-optimizer-settings {
+      float: right;
+}
+
+.swift-image-optimizer-preview {
+      display: block;
+      height: 140px;
+      width: 140px;
+      background-repeat: no-repeat;
+      background-position: center center;
+}
+
+.swift-performance-list-table #preview{
+      width: 140px;
+}
+
+.swift-performance-list-table #link{
+      width: 60%;
+}
+
+.swift-performance-list-table th.check-column,
+.swift-performance-list-table td {
+      vertical-align: middle;
+}
+
+.swift-coverflow {
+      overflow-x: scroll;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+}
+
+.swift-coverflow li {
+      z-index: 1;
+      perspective: 900px;
+      transform-style: preserve-3d;
+      position: relative;
+      text-align: center;
+      display: inline-block;
+}
+
+.swift-coverflow li .swift-coverflow-content {
+      display: flex;
+      width: 200px;
+      height: 200px;
+      transition: transform 0.3s;
+      transform: rotate3d(0, 1, 0, 45deg);
+      border: 2px solid #fff;
+      background-color: #F1F1F1;
+      background-repeat: no-repeat;
+      background-position: 25% center;
+}
+.swift-coverflow li:not(:first-child) .swift-coverflow-content {
+      margin-left: -140px;
+}
+
+.swift-coverflow li:hover {
+      z-index: 2;
+}
+
+.swift-coverflow li:last-child .swift-coverflow-content {
+      background-position: center center;
+}
+
+.swift-coverflow li:hover .swift-coverflow-content {
+      transform: none;
+      background-position: center center;
+}
+
+.swift-coverflow-remove-content {
+      opacity: 0;
+      transition: opacity 0.3s linear 0.3s;
+      text-decoration: none;
+      position: absolute;
+      top: 14px;
+      right: 6px;
+      cursor: pointer;
+      background-color: #2156C1;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+}
+
+.swift-coverflow li:hover .swift-coverflow-remove-content {
+      opacity: 0.3;
+}
+
+.swift-coverflow-remove-content:hover {
+      transition-delay: 0s;
+      opacity: 1 !important;
+      color: #fff;
+}
+
+#swift-selected-images:empty,
+#swift-selected-images:empty + .swift-selected-images{
+      display: none;
+}
+
+.selected-images-count:not(:empty) + .selected-images-count-default {
+      display: none;
+}
+
+/* Custom settings */
+
+.swift-custom-settings-container {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 159000;
+      margin-right: -440px;
+      width: 420px;
+      height: 260px;
+      display: block;
+      padding: 10px;
+      background-color: #fff;
+      transition: margin-right 0.6s;
+      -webkit-transition: margin-right 0.6s;
+      box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
+      -webkit-box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
+      -moz-box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
+}
+
+.swift-custom-settings-container.opened {
+	margin-right: 0;
+}
+
+.swift-custom-settings-container .swift-custom-settings-trigger {
+      position: absolute;
+	top: 50%;
+	font-size: 18px;
+	margin-top: -45px;
+	margin-left: -50px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	background-color: #fff;
+	-webkit-border-top-left-radius: 30px;
+	-webkit-border-bottom-left-radius: 30px;
+	-moz-border-radius-topleft: 30px;
+	-moz-border-radius-bottomleft: 30px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	cursor: pointer;
+	box-shadow: -3px 0 15px -2px rgba(0, 0, 0, 0.14);
+	-webkit-box-shadow: -3px 0 15px -2px rgba(0, 0, 0, 0.14);
+	-moz-box-shadow: -3px 0 15px -2px rgba(0, 0, 0, 0.14);
+}
+
+.swift-custom-settings-container .swift-custom-settings-trigger .dashicons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+}
+
+.swift-custom-settings {
+      padding: 8px;
+}
+
+.swift-custom-settings h3 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+}
+
+.swift-custom-settings label {
+      line-height: 30px;
+      font-weight: 700;
+}
+
+.swift-custom-settings-cell:first-of-type {
+      width: 150px
+}
+
+[name="maximum-image-width"] {
+      width: 50px;
+}
+
+[name="resize-large-images"]:not(:checked) + span {
+      opacity: 0.3;
+      pointer-events: none;
+}
+
+/* Slider */
+
+.swift-range-slider {
+  width: 100%;
+}
+
+.swift-custom-settings-cell {
+      display: table-cell;
+}
+
+.swift-range-slider .swift-custom-settings-cell:first-of-type {
+      width: 90px
+}
+
+.swift-range-slider__range {
+  -webkit-appearance: none;
+  width: 235px;
+  height: 10px;
+  border-radius: 5px;
+  background: #d7dcdf;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.swift-range-slider__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2156C1;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+.swift-range-slider__range::-webkit-slider-thumb:hover {
+  background: #d4675f;
+}
+.swift-range-slider__range:active::-webkit-slider-thumb {
+  background: #d4675f;
+}
+.swift-range-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #2156C1;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+.swift-range-slider__range::-moz-range-thumb:hover {
+  background: #d4675f;
+}
+.swift-range-slider__range:active::-moz-range-thumb {
+  background: #d4675f;
+}
+
+input.swift-range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #2156C1;
+  padding: 5px;
+  margin-left: 8px;
+  border: 0;
+}
+.swift-range-slider__value:after {
+  position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #2156C1;
+  border-bottom: 7px solid transparent;
+  content: '';
+}
+
+.swift-range-slider ::-moz-range-track {
+  background: #d7dcdf;
+  border: 0;
+}
+
+.swift-range-slider input::-moz-focus-inner,
+.swift-range-slider input::-moz-focus-outer {
+  border: 0;
+}
+
+.swift-custom-settings input[type=number]::-webkit-outer-spin-button,
+.swift-custom-settings input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.swift-custom-settings input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.swift-optimizer-initialize {
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+}

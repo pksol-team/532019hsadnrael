@@ -1,0 +1,7 @@
+[12-Dec-2018 12:29:52 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[12-Dec-2018 12:38:33 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[19-Dec-2018 03:41:58 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[19-Dec-2018 03:46:01 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[19-Dec-2018 03:48:34 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[19-Dec-2018 03:50:25 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10
+[28-Dec-2018 12:58:04 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home/braniffi/public_html/cl/wp-content/themes/twentyfifteen/404.php on line 10

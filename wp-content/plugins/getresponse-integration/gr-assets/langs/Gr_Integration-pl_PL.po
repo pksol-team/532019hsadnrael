@@ -1,0 +1,702 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: getresponse-integration\n"
+"POT-Creation-Date: 2016-04-14 11:21+0100\n"
+"PO-Revision-Date: 2016-04-14 11:21+0100\n"
+"Last-Translator: \n"
+"Language-Team: GetResponse\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: ../../.\n"
+
+#: ../.././gr-buddypress/gr-buddypress-actions.php:42
+#: ../.././gr-settings/gr-settings-actions.php:115
+#: ../.././gr-woocommerce/gr-woocommerce-actions.php:64
+msgid "Settings saved"
+msgstr "Ustawienia zapisane"
+
+#: ../.././gr-core/admin/gr-core-admin-actions.php:240
+msgid "You have been disconnected"
+msgstr "Konto zostało odłączone"
+
+#: ../.././gr-core/admin/gr-core-admin.php:83
+msgid "Status & Configuration"
+msgstr "Status & Konfiguracja"
+
+#: ../.././gr-core/admin/gr-core-admin.php:90
+msgid "Subscription Settings"
+msgstr "Konfiguracja Subskrypcji"
+
+#: ../.././gr-core/admin/gr-core-admin.php:96
+msgid "WebForm Shortcode"
+msgstr "Shortcode Formularza"
+
+#: ../.././gr-core/admin/gr-core-admin.php:102
+msgid "BuddyPress Integration"
+msgstr "Integracja BuddyPress"
+
+#: ../.././gr-core/admin/gr-core-admin.php:109
+msgid "WooCommerce Integration"
+msgstr "Integracja WooCommerce"
+
+#: ../.././gr-core/admin/gr-core-admin.php:116
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../.././gr-settings/classes/class-gr-settings.php:70
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: ../.././gr-settings/gr-settings-actions.php:87
+msgid "You have been connected"
+msgstr "Konto zostało podłączone"
+
+#: ../.././gr-settings/gr-settings-actions.php:206
+#: ../.././gr-templates/admin/widgets/admin/widget.php:35
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:32
+msgid "New Forms"
+msgstr "Nowe Formularze"
+
+#: ../.././gr-settings/gr-settings-actions.php:207
+#: ../.././gr-templates/admin/widgets/admin/widget.php:36
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:34
+msgid "Old Web Forms"
+msgstr "Stare Formularze"
+
+#: ../.././gr-settings/gr-settings-actions.php:208
+msgid "No Forms"
+msgstr "Brak formularzy"
+
+#: ../.././gr-settings/gr-settings-actions.php:209
+msgid "No Web Forms"
+msgstr "Brak formularzy"
+
+#: ../.././gr-settings/gr-settings-actions.php:240
+msgid "An error occurred while trying to traceroute"
+msgstr "Błąd podczas wykonywania tracerouta"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:28
+msgid "Subscribe via BuddyPress Registration Page"
+msgstr "Subskrypcja za pomocą Formularza Zapisu BuddyPress"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:39
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:13
+msgid "Registration integration"
+msgstr "Integrecja rejestracji"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:45
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:22
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:19
+#: ../.././gr-templates/admin/settings/woocommerce.php:63
+msgid "Off"
+msgstr "Wyłączona"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:48
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:25
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:22
+#: ../.././gr-templates/admin/settings/woocommerce.php:66
+msgid "On"
+msgstr "Włączona"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:55
+msgid "Allow subscriptions at the BuddyPress registration page"
+msgstr "Aktywuj subskrypcję na stronie rejestracji BuddyPress"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:75
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:53
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:47
+msgid "Target Campaign"
+msgstr "Kampania"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:88
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:66
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:61
+#: ../.././gr-templates/admin/settings/woocommerce.php:100
+msgid "Additional text:"
+msgstr "Dodatkowy tekst:"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:98
+msgid "Sign up to our newsletter"
+msgstr "Zapisz się do newslettera"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:104
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:81
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:76
+msgid "Subscribe checkbox checked by default"
+msgstr "Zapisanie do kampanii zaznaczone domyślnie"
+
+#: ../.././gr-templates/admin/settings/buddypress.php:130
+#: ../.././gr-templates/admin/settings/subscription_settings.php:82
+#: ../.././gr-templates/admin/settings/woocommerce.php:182
+msgid "Save"
+msgstr "Zapisz"
+
+#: ../.././gr-templates/admin/settings/common_no_api_key.php:23
+msgid "GetResponse API Settings"
+msgstr "Ustawienia GetResponse API"
+
+#: ../.././gr-templates/admin/settings/common_no_api_key.php:43
+msgid "Connect"
+msgstr "Połącz"
+
+#: ../.././gr-templates/admin/settings/error-page.php:20
+msgid "GetResponse Plugin - API Error"
+msgstr "GetResponse Plugin - Błąd API"
+
+#: ../.././gr-templates/admin/settings/error-page.php:32
+msgid "CURL extension:"
+msgstr "rozszerzenie CURL"
+
+#: ../.././gr-templates/admin/settings/error-page.php:37
+msgid "NOT INSTALLED"
+msgstr "BRAK INSTALACJI"
+
+#: ../.././gr-templates/admin/settings/error-page.php:39
+msgid "INSTALLED"
+msgstr "ZAINSTALOWANE"
+
+#: ../.././gr-templates/admin/settings/error-page.php:45
+msgid "GetResponse Integration Plugin requires PHP cURL extension"
+msgstr "Wtyczka GetResponse Integration wymaga włączonego modułu cURL dla PHP"
+
+#: ../.././gr-templates/admin/settings/error-page.php:55
+msgid "GetResponse API:"
+msgstr "GetResponse API:"
+
+#: ../.././gr-templates/admin/settings/error-page.php:60
+msgid "NOT AVAILABLE"
+msgstr "NIEDOSTĘPNY"
+
+#: ../.././gr-templates/admin/settings/error-page.php:62
+msgid "AVAILABLE"
+msgstr "DESTĘPNY"
+
+#: ../.././gr-templates/admin/settings/error-page.php:89
+msgid "Error code/message:"
+msgstr "Kod błędu/komunikat:"
+
+#: ../.././gr-templates/admin/settings/error-page.php:99
+msgid "Traceroute result"
+msgstr "Traceroute rezultat"
+
+#: ../.././gr-templates/admin/settings/error-page.php:105
+msgid "Receiving data, please be patient"
+msgstr "Odbieranie danych"
+
+#: ../.././gr-templates/admin/settings/error-page.php:111
+msgid "Please"
+msgstr "Proszę"
+
+#: ../.././gr-templates/admin/settings/error-page.php:113
+#: ../.././gr-templates/admin/settings/help.php:54
+msgid "CONTACT US"
+msgstr "Napisz do nas"
+
+#: ../.././gr-templates/admin/settings/error-page.php:115
+msgid "and send error code/message and traceroute result."
+msgstr "i prześlij kod błędu/komunikat oraz wynik traceroute'a"
+
+#: ../.././gr-templates/admin/settings/footer.php:5
+#, php-format
+msgid "Leave a %s plugin review on"
+msgstr "Zostaw %s ocenę naszego pluginu na"
+
+#: ../.././gr-templates/admin/settings/footer.php:12
+#, php-format
+msgid "Vote \"works\" on the WordPress.org plugin %spage%s"
+msgstr "Zagłosuj \"działa\"  na stronie %sWordPress.org plugins%s"
+
+#: ../.././gr-templates/admin/settings/footer.php:17
+msgid "Support us and tweet about"
+msgstr "Wesprzyj nas i tweetuj o "
+
+#: ../.././gr-templates/admin/settings/functions.php:17
+msgid "No Campaigns."
+msgstr "Brak kampanii"
+
+#: ../.././gr-templates/admin/settings/functions.php:97
+#: ../.././gr-templates/admin/settings/functions.php:112
+msgid "No rss items, feed might be broken."
+msgstr "Brak elementów rss, kanał może być uszkodzony."
+
+#: ../.././gr-templates/admin/settings/help.php:23
+msgid "GetResponse support"
+msgstr "Wsparcie GetResponse"
+
+#: ../.././gr-templates/admin/settings/help.php:30
+#, php-format
+msgid ""
+"Make sure to look at the our WordPress plugin: %s documentation %s or use "
+"the %s support forums %s on WordPress.org."
+msgstr ""
+"Upewnij się, że sprawdziłeś naszą %s dokumentację %s lub zajrzałeś na %s "
+"forum wsparcia %s na WordPress.org."
+
+#: ../.././gr-templates/admin/settings/help.php:44
+msgid "Having problems with the plugin?"
+msgstr "Masz problem z wtyczką?"
+
+#: ../.././gr-templates/admin/settings/help.php:50
+msgid ""
+"You can drop us a line including the following details and we'll do what we "
+"can. "
+msgstr ""
+"Prześlij do nas pytanie załączając poniższe informacje, z nimi szybciej "
+"rozwiążemy Twój problem."
+
+#: ../.././gr-templates/admin/settings/help.php:69
+msgid "Copied"
+msgstr "Skopiowano"
+
+#: ../.././gr-templates/admin/settings/partials/api_key_form.php:13
+#: ../.././gr-templates/admin/settings/status.php:34
+msgid "Status"
+msgstr "Status"
+
+#: ../.././gr-templates/admin/settings/partials/api_key_form.php:17
+msgid "NOT CONNECTED"
+msgstr "BRAK POŁĄCZENIA"
+
+#: ../.././gr-templates/admin/settings/partials/api_key_form.php:23
+msgid "API Key:"
+msgstr "Klucz API:"
+
+#: ../.././gr-templates/admin/settings/partials/api_key_form.php:36
+msgid ""
+"Enter your API key. You can find it on your GetResponse profile in Account "
+"Details -> GetResponse API."
+msgstr ""
+"Wpisz swój klucz API. Możesz go znaleźć na stronie profilu GetResponse w "
+"Moje Konto -> Integracje -> API & OAuth"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:16
+#: ../.././gr-templates/admin/settings/status.php:58
+msgid "GetResponse 360"
+msgstr "GetResponse 360"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:33
+msgid "For GetResponse 360 accounts"
+msgstr "Dla użytkowników GetResponse 360"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:51
+msgid "Type"
+msgstr "Konto"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:58
+msgid "GetResponse360 PL"
+msgstr "GetResponse360 PL"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:62
+msgid "GetResponse360 COM"
+msgstr "GetResponse360 COM"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:68
+msgid "This data is available from your account manager."
+msgstr "Dane te są dostępne z menedżerem konta."
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:77
+msgid "Domain"
+msgstr "Domena"
+
+#: ../.././gr-templates/admin/settings/partials/gr_360.php:90
+msgid "Enter your domain without protocol http:// eg: \"yourdomainname.com\""
+msgstr "Podaj swoją domenę bez protokułu http:// np: \"nazwadomeny.pl\""
+
+#: ../.././gr-templates/admin/settings/partials/messages.php:16
+msgid "Settings error"
+msgstr "Błąd podczas zapisu"
+
+#: ../.././gr-templates/admin/settings/partials/rss.php:9
+msgid "GetResponse RSS"
+msgstr "GetResponse RSS"
+
+#: ../.././gr-templates/admin/settings/partials/social.php:9
+msgid "GetResponse Social Media"
+msgstr "GetResponse Media Społecznościowe"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:16
+msgid "Comment integration"
+msgstr "Integracja Komentarzy"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:32
+msgid "Allow subscriptions when visitors comment"
+msgstr "Pozwól na subskrypcje z komentarzy odwiedzających"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_comment.php:75
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:70
+#: ../.././gr-templates/admin/settings/woocommerce.php:109
+msgid "Sign up to our newsletter!"
+msgstr "Zapisz się do naszego newslettera!"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page.php:29
+msgid "Allow subscriptions at the registration page"
+msgstr "Pozwól na subskrypcje na stronie rejestracji"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page_bp.php:9
+msgid "BuddyPress module is active. Option is available on "
+msgstr "BuddyPress jest włączony. Opcja dostępna na"
+
+#: ../.././gr-templates/admin/settings/partials/subs_via_registration_page_bp.php:11
+msgid "BuddyPress Tab"
+msgstr "BuddyPress"
+
+#: ../.././gr-templates/admin/settings/status.php:19
+msgid "Account info"
+msgstr "Informacje o koncie"
+
+#: ../.././gr-templates/admin/settings/status.php:38
+msgid "CONNECTED"
+msgstr "POŁĄCZONY"
+
+#: ../.././gr-templates/admin/settings/status.php:40
+msgid "disconnect"
+msgstr "rozłącz"
+
+#: ../.././gr-templates/admin/settings/status.php:48
+msgid "API Key"
+msgstr "Klucz API"
+
+#: ../.././gr-templates/admin/settings/status.php:63
+msgid "Yes"
+msgstr "Tak"
+
+#: ../.././gr-templates/admin/settings/status.php:66
+msgid "No"
+msgstr "Nie"
+
+#: ../.././gr-templates/admin/settings/status.php:77
+msgid "First name"
+msgstr "Imię"
+
+#: ../.././gr-templates/admin/settings/status.php:92
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: ../.././gr-templates/admin/settings/status.php:107
+msgid "Company"
+msgstr "Firma"
+
+#: ../.././gr-templates/admin/settings/status.php:122
+msgid "Email address"
+msgstr "Adres email"
+
+#: ../.././gr-templates/admin/settings/status.php:137
+msgid "Country"
+msgstr "Kraj"
+
+#: ../.././gr-templates/admin/settings/status.php:152
+msgid "State"
+msgstr "Województwo"
+
+#: ../.././gr-templates/admin/settings/status.php:167
+msgid "ZIP/Postal Code"
+msgstr "Kod pocztowy"
+
+#: ../.././gr-templates/admin/settings/status.php:182
+msgid "Street"
+msgstr "Ulica"
+
+#: ../.././gr-templates/admin/settings/status.php:197
+msgid "City"
+msgstr "Miasto"
+
+#: ../.././gr-templates/admin/settings/subscription_settings.php:25
+msgid "Subscribe via Web Form"
+msgstr "Zapis przez Formularz Zapisu"
+
+#: ../.././gr-templates/admin/settings/subscription_settings.php:32
+msgid ""
+"To activate a GetResponse Web Form widget drag it to a sidebar or click on "
+"it."
+msgstr ""
+"Aby aktywować Formularze Zapisu GetResponse, przeciąnij wtyczkę lub kliknij "
+"w nią."
+
+#: ../.././gr-templates/admin/settings/subscription_settings.php:34
+msgid "Go to Widgets site"
+msgstr "Przejdź do Wtyczek"
+
+#: ../.././gr-templates/admin/settings/subscription_settings.php:45
+msgid "Subscribe via Comment"
+msgstr "Zapis przez komentarz"
+
+#: ../.././gr-templates/admin/settings/subscription_settings.php:61
+msgid "Subscribe via Registration Page"
+msgstr "Zapis na stronie rejestracji"
+
+#: ../.././gr-templates/admin/settings/webform.php:24
+msgid "Web Form Shortcode"
+msgstr "Kod Formularza Zapisu"
+
+#: ../.././gr-templates/admin/settings/webform.php:32
+msgid ""
+"With the GetResponse Wordpress plugin, you can use shortcodes to place web "
+"forms in blog posts. Simply place the following tag in your post wherever "
+"you want the web form to appear:"
+msgstr ""
+"Dzięki wtyczce GetResponse WordPress możesz użyć krótkiej wersji kodu, aby "
+"umieścić formularz zapisu na blogu. Wystarczy umieścić następujący tag w "
+"pości, w którym ma pojawić się formularz zapisu:"
+
+#: ../.././gr-templates/admin/settings/webform.php:39
+msgid "Allowed attributes"
+msgstr "Dozwolone atrybuty"
+
+#: ../.././gr-templates/admin/settings/webform.php:42
+msgid ""
+"Set this parameter to ON, and the form will be displayed in a GetResponse "
+"format; set it to OFF, and the form will be displayed in a standard "
+"Wordpress format. Allowed only for legacy forms."
+msgstr ""
+"Włączenie tej funkcji spowoduje wyświetlenie formularza w formacie zapisanym "
+"przez GetResponse. Gdy ją wyłączysz, formularz pozostanie w standardowym "
+"formacie Wordpress. Funkcja dostępna jedynie dla starej wersji formularzy."
+
+#: ../.././gr-templates/admin/settings/webform.php:46
+msgid ""
+"Set this parameter to ON, and the form will be centralized; set it to OFF, "
+"and the form will be displayed in the standard left side without margin."
+msgstr ""
+"Włączenie tej funkcji spowoduje wypośrodkowanie formularza. Jej wyłączenie "
+"generuje wyświetlenie formularza po lewej stronie strony bez zastosowania "
+"marginesu."
+
+#: ../.././gr-templates/admin/settings/webform.php:50
+msgid ""
+"Set this parameter to customize margin (element width) [Default is 200px] "
+msgstr ""
+"Włączenie tej funkcji pozwoli na dopasowanie szerokości marginesu "
+"[Ustawienia domyślne to 200px]."
+
+#: ../.././gr-templates/admin/settings/webform.php:54
+msgid ""
+"Set this parameter to customize form variant, allowed values: A-H. Variants "
+"can be set in your GetResponse panel. Allowed only for the new forms."
+msgstr ""
+"Ustaw tę funkcję by dopasować warianty testów A/B do własnych potrzeb; "
+"możliwe wartości: A-H. Ustawień wariantów można dokonać w panelu "
+"GetResponse. Funkcja dostępna jedynie dla nowych formularzy."
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:26
+#: ../.././gr-templates/admin/settings/woocommerce.php:45
+msgid "Subscribe via Checkout Page (WooCommerce)"
+msgstr "Zapis na stronie z płatnościami (WooCommerce)"
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:32
+msgid ""
+"This section is disabled due to GetResponse WooCommerce plugin is active."
+msgstr ""
+"Ta sekcja jest wyłączona ponieważ wtyczka GetResponse WooCommerce jest "
+"aktywna."
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:57
+msgid "Checkout integration"
+msgstr "Integracja na stronie zakupu"
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:73
+msgid "Allow subscriptions at the checkout stage."
+msgstr "Pozwól subskrypcje na etapie finalizacji transakcji."
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:88
+msgid "Target campaign"
+msgstr "Kampania"
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:116
+msgid "Sign up box checked by default"
+msgstr "Formularz zapisu zaznaczony domyślnie"
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:134
+msgid "Map custom fields:"
+msgstr "Zmapuj pola:"
+
+#: ../.././gr-templates/admin/settings/woocommerce.php:151
+msgid ""
+"Check to update customer details. Each input can be max. 32 characters and "
+"include lowercase, a-z letters, digits or underscores. Incorrect or empty "
+"entries won’t be added."
+msgstr ""
+"Sprawdź zaktualizowane dane klientów. Każdy element może zawierać do 32 "
+"znaków i składać się z małych liter a-z, liczb lub podkreśleń. Niepoprawne "
+"lub puste wpisy nie będą dodane."
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:11
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:11
+msgid "Title"
+msgstr "Tytuł"
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:26
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:21
+msgid "Web Form"
+msgstr "Fromularz"
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:46
+msgid "Variant"
+msgstr "Wariant"
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:65
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:46
+msgid "Use Wordpress CSS styles (Old Web Forms)"
+msgstr "Użyj styli CSS Wordpressa (Stare Formularze)"
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:77
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:58
+msgid "Center Webform"
+msgstr "Wyśrodkuj Webform"
+
+#: ../.././gr-templates/admin/widgets/admin/widget.php:81
+#: ../.././gr-templates/admin/widgets/customizer/widget.php:62
+msgid "Margin"
+msgstr "Margines"
+
+#: ../.././gr-templates/admin/widgets/admin/widget_error.php:10
+msgid "API key is not set"
+msgstr "Klucz API nie jest ustawiony"
+
+#: ../.././gr-widgets/classes/class-gr-int-widget.php:19
+msgid "GetResponse Web Form (New)"
+msgstr "GetResponse Web Form (Nowe)"
+
+#: ../.././gr-widgets/classes/class-gr-int-widget.php:20
+msgid "Dispaly a GetResponse Web Form on your site."
+msgstr "Wyświetl Formularz Zapisu GetResponse na Twojej stronie"
+
+#~ msgid "Vote \"works\" on the WordPress.org plugin"
+#~ msgstr "Głosuj \"działa\" stronie WordPress.org"
+
+#~ msgid "page"
+#~ msgstr "tutaj"
+
+#~ msgid "Leave a"
+#~ msgstr "Zostaw"
+
+#~ msgid "plugin review on"
+#~ msgstr "ocenę na"
+
+#~ msgid "Make sure to look at the our WordPress plugin"
+#~ msgstr "Upewnij się, że sprawdziłeś naszą"
+
+#~ msgid "documentation"
+#~ msgstr "dokumentację"
+
+#~ msgid "or use the"
+#~ msgstr "lub czytałeś"
+
+#~ msgid "support forums"
+#~ msgstr "forum wsparcia"
+
+#~ msgid "on"
+#~ msgstr "na"
+
+#~ msgid "Domain:"
+#~ msgstr "Domena:"
+
+#~ msgid "Variant:"
+#~ msgstr "Wariant:"
+
+#~ msgid "Margin:"
+#~ msgstr "Margines"
+
+#~ msgid "Registration integration:"
+#~ msgstr "Integracja z formularzem zapisu"
+
+#~ msgid "Traceroute result:"
+#~ msgstr "Traceroute wynik:"
+
+#~ msgid "GetResponse 360:"
+#~ msgstr "GetResponse 360:"
+
+#~ msgid "Type:"
+#~ msgstr "Typ konta:"
+
+#~ msgid "An error occurred while trying to traceroute: "
+#~ msgstr "Wystąpił błąd podczas wykonywania komendy treceroute"
+
+#~ msgid "Receiving data, please be patient..."
+#~ msgstr "Trwa odbieranie danych, prosimy o cierpliwość..."
+
+#~ msgid "Comment integration:"
+#~ msgstr "Integracja z komentarzami"
+
+#~ msgid "Checkout integration:"
+#~ msgstr "Integracja ze stroną płatności"
+
+#~ msgid "Web Form:"
+#~ msgstr "Formularz Zapisu:"
+
+#~ msgid "API key is not set."
+#~ msgstr "Klucz API nie jest ustawiony."
+
+#~ msgid "Target Campaign:"
+#~ msgstr "Kampania:"
+
+#~ msgid "Target campaign:"
+#~ msgstr "Kampania:"
+
+#~ msgid "Settings saved."
+#~ msgstr "Ustawienia zapisane"
+
+#~ msgid "You have been disconnected."
+#~ msgstr "Integracja została rozłączona"
+
+#~ msgid "Allowed attributes:"
+#~ msgstr "Dozwolone atrybuty:"
+
+#~ msgid "GetResponse"
+#~ msgstr "GetResponse"
+
+#~ msgid "Oops there was a problem connecting to the GetResponse API server."
+#~ msgstr "Niestety wystąpił problem z połączeniem do serwera GetResponse API."
+
+#~ msgid "Back to GetResponse Plugin site"
+#~ msgstr "Wróć do strony z pluginem GetResponse"
+
+#~ msgid " - Invalid API Key"
+#~ msgstr " - Niepoprawny klucz API"
+
+#~ msgid " - API Key can't be empty."
+#~ msgstr " - pole z Kluczem API nie może być puste"
+
+#~ msgid "GetResponse Plugin Settings"
+#~ msgstr "Ustawienia GetResponse"
+
+#~ msgid ""
+#~ "The new GetResponse Forms are now available! Enjoy a new era of growing "
+#~ "your list, but be patient if any issues with the WordPress Plugin may "
+#~ "occur during the BETA phase. We’re polishing it as we speak!"
+#~ msgstr ""
+#~ "Nowe formularze są już dostępne! Wejdź w nową erę budowania listy i bądź "
+#~ "cierpliwy jeśli pojawią się drobne niedogodności z pluginem WordPress "
+#~ "podczas trwania wersji BETA. Udoskonalamy ją w tym momencie!"
+
+#~ msgid ""
+#~ "Enter your API key. You can find it on your GetResponse profile in "
+#~ "Account Details -> GetResponse API"
+#~ msgstr ""
+#~ "Wprowadź klucz API. Możesz go znaleźć w Twoim koncie GetResponse: "
+#~ "Ustawienia konta -> GetResponse API"
+
+#~ msgid "(allow subscriptions when visitors comment)"
+#~ msgstr "(pozwala na zapis, gdy goście komentują)"
+
+#~ msgid "(allow subscriptions at the registration page)"
+#~ msgstr "(pozwala na zapis na stronie rejestracji)"
+
+#~ msgid "(allow subscriptions at the BuddyPress registration page)"
+#~ msgstr "(pozwala na zapis na stronie rejestracji BuddyPress)"
+
+#~ msgid "(allow subscriptions at the checkout stage)"
+#~ msgstr "(pozwala na zapis na stronie płatności)"
+
+#~ msgid "cURL Error !"
+#~ msgstr "Błąd cURL !"
+
+#~ msgid "GetResponse Web Form"
+#~ msgstr "Formularz Zapisu GetResponse"

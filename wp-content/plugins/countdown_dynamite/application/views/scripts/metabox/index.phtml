@@ -1,0 +1,915 @@
+<?php
+$formName = Ucd_WpPlugin::PREFIX . '_metabox';
+?>
+<div id="ucd-help-bkg"></div>
+<div id="ucd-form-metabox" class="ucd-form-wrap">
+    <?php if ($errors): ?>
+        <ul class="ucd-messages">
+            <?php if ($defaultValuesInvalid): ?>
+                <li class="ucd-error ucd-errors-check-default">
+                    Please check <a href="<?php echo admin_url('admin.php?page=' . Ucd_WpPlugin::SLUG); ?>">default settings</a> or override them with valid custom values.
+                </li>
+            <?php endif; ?>
+            <?php foreach ($errors as $error): ?>
+                <li class="ucd-error">
+                    <?php echo $this->escape($error); ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+    <form id="ucd-form-admin-main" method="post" action="#">
+        <input type="hidden"
+            id="ucd-metabox-input"
+            name="<?php echo $formName; ?>[metabox]"
+            value="1"
+        />
+
+        <?php
+            $name = 'enabled';
+            $elem = $form->getElement($name);
+        ?>
+        <div id="ucd-<?php echo $name; ?>-field"
+            class="ucd-form-field"
+        >
+            <label for="ucd-<?php echo $name; ?>"
+                id="ucd-<?php echo $name; ?>-label"
+            >
+                <input id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    type="checkbox"
+                    value="1"
+                    <?php if ($elem->getValue()): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                />
+                <span class="ucd-label-text">
+                    <?php echo $this->escape($elem->getLabel()); ?>
+                </span>
+                <span class="ucd-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="<?php echo $name; ?>">help</a>)
+                </span>
+            </label>
+        </div>
+
+        <?php
+            $name = 'custom';
+            $elem = $form->getElement($name);
+        ?>
+        <div id="ucd-<?php echo $name; ?>-field"
+            class="ucd-form-field"
+        >
+            <label for="ucd-<?php echo $name; ?>"
+                id="ucd-<?php echo $name; ?>-label"
+            >
+                <input id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    type="checkbox"
+                    value="1"
+                    <?php if ($elem->getValue()): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                />
+                <span class="ucd-label-text">
+                    <?php echo $this->escape($elem->getLabel()); ?>
+                    <br />
+                    (they will override the general settings)
+                </span>
+                <span class="ucd-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="<?php echo $name; ?>">help</a>)
+                </span>
+            </label>
+        </div>
+
+        <?php
+            $radioName = 'expiration_type';
+            $radioElem = $form->getElement($radioName);
+            $radioValue = $radioElem->getValue();
+        ?>
+
+        <h4><?php echo $this->escape($radioElem->getLabel()); ?>:</h4>
+
+        <?php
+            $optionKey = 'date';
+            $optionId = "ucd-{$radioName}-{$optionKey}";
+        ?>
+        <div class="ucd-form-field" id="<?php echo $optionId; ?>-field">
+            <label id="<?php echo $optionId; ?>-label"
+                class="ucd-radio-option-container"
+                for="<?php echo $optionId; ?>"
+            >
+                <span class="ucd-label-regular">
+                    <input type="radio"
+                        name="<?php echo $formName; ?>[<?php echo $radioName; ?>]"
+                        id="<?php echo $optionId; ?>"
+                        value="<?php echo $optionKey; ?>"
+                        <?php if ($radioValue == $optionKey): ?>
+                            checked="checked"
+                        <?php endif; ?>
+                        class="ucd-radio-has-details ucd-<?php echo $radioName; ?> ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                    >
+                    <span class="ucd-label-text">
+                        <?php echo $this->escape($radioElem->getMultiOption($optionKey)); ?>:
+                    </span>
+                </span>
+            </label>
+
+            <?php
+                $name = 'expiration_date';
+                $elem = $this->form->getElement($name);
+            ?>
+            <input type="text"
+                name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                id="ucd-<?php echo $name; ?>"
+                value="<?php echo $this->escape($elem->getValue()); ?>"
+                class="ucd-has-datetimepicker ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?> ucd-for-option"
+                data-for-option="<?php echo $optionId; ?>"
+            />
+
+            <span class="ucd-help-link-container">
+                (<a href="#" class="ucd-help-link" data-identifier="<?php echo $radioName; ?>-<?php echo $optionKey; ?>">help</a>)
+            </span>
+        </div>
+
+        <div id="<?php echo $optionId; ?>-details"
+            class="ucd-option-details"
+            data-details-for-option="<?php echo $optionId; ?>"
+            <?php if ($radioValue != $optionKey): ?>
+                style="display: none;"
+            <?php endif; ?>
+        >
+            <?php
+                $name = 'expiration_date_timezone_base';
+                $elem = $form->getElement($name);
+                $value = $elem->getValue();
+            ?>
+            <div class="ucd-form-field" id="ucd-<?php echo $name; ?>-field">
+                <label class="ucd-label-regular">
+                    <?php echo $this->escape($elem->getLabel()); ?>:
+                </label>
+                <select id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                >
+                    <?php foreach ($elem->getMultiOptions() as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo $this->escape($label); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <?php
+                    $name = 'expiration_date_timezone_offset_hours';
+                    $elem = $form->getElement($name);
+                    $value = $elem->getValue();
+                ?>
+                <select id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                >
+                    <?php foreach ($elem->getMultiOptions() as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo str_replace(' ', '&nbsp;', $this->escape($label)); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                :
+                <?php
+                    $name = 'expiration_date_timezone_offset_minutes';
+                    $elem = $form->getElement($name);
+                    $value = $elem->getValue();
+                    $basic = '00' != $form->getValue('expiration_date_timezone_offset_hours');
+                ?>
+                <select id="ucd-<?php echo $name; ?>-full"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?><?php if ($basic): ?> ucd-hidden<?php endif; ?>"
+                    <?php if ($basic): ?>
+                        disabled="disabled"
+                    <?php else: ?>
+                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    <?php endif; ?>
+                    data-name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                >
+                    <?php foreach ($elem->getMultiOptions() as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo str_replace(' ', '&nbsp;', $this->escape($label)); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <select id="ucd-<?php echo $name; ?>-basic"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?><?php if (!$basic): ?> ucd-hidden<?php endif; ?>"
+                    <?php if (!$basic): ?>
+                        disabled="disabled"
+                    <?php else: ?>
+                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    <?php endif; ?>
+                    data-name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                >
+                    <?php foreach ($elem->getAttrib('-multiOptionsBasic') as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo $this->escape($label); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+
+        <?php
+            $optionKey = 'duration';
+            $optionId = "ucd-{$radioName}-{$optionKey}";
+        ?>
+        <div class="ucd-form-field" id="<?php echo $optionId; ?>-field">
+            <label id="<?php echo $optionId; ?>-label"
+                class="ucd-radio-option-container"
+                for="<?php echo $optionId; ?>"
+            >
+                <input type="radio"
+                    name="<?php echo $formName; ?>[<?php echo $radioName; ?>]"
+                    id="<?php echo $optionId; ?>"
+                    value="<?php echo $optionKey; ?>"
+                    <?php if ($radioValue == $optionKey): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                    class="ucd-radio-has-details ucd-<?php echo $radioName; ?> ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                >
+                <span class="ucd-label-text">
+                    <?php echo $this->escape($radioElem->getMultiOption($optionKey)); ?>:
+                </span>
+                <span class="ucd-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="<?php echo $radioName; ?>-<?php echo $optionKey; ?>">help</a>)
+                </span>
+            </label>
+        </div>
+
+        <div id="<?php echo $optionId; ?>-details"
+            class="ucd-option-details ucd-form-field"
+            data-details-for-option="<?php echo $optionId; ?>"
+            <?php if ($radioValue != $optionKey): ?>
+                style="display: none;"
+            <?php endif; ?>
+        >
+            <table id="<?php echo $optionId; ?>-details-table"
+                class="widefat ucd-counter-elements-table"
+            >
+                <tbody>
+                    <tr>
+                        <?php foreach ($form->getCounterElements() as $key): ?>
+                            <td class="ucd-duration-cell">
+                                <?php
+                                    $name = "expiration_duration_{$key}";
+                                    $elem = $form->getElement($name);
+                                ?>
+                                <input type="text" id="ucd-<?php echo $name; ?>"
+                                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                                    class="ucd-duration-input ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                                    value="<?php echo $this->escape($this->padNumber($elem->getValue(), 2)); ?>"
+                                />
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <?php foreach ($form->getCounterElements() as $key): ?>
+                            <th class="ucd-duration-label-cell">
+                                <label for="ucd-<?php echo $name; ?>"
+                                    id="ucd-<?php echo $name; ?>-label"
+                                    class="ucd-duration-label"
+                                >
+                                    <?php echo $this->escape($form->getCounterElementProperty($key, 'label')); ?>
+                                </label>
+                            </th>
+                        <?php endforeach; ?>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <?php
+                $name = 'restart';
+                $id = "ucd-{$name}";
+                $elem = $this->form->getElement($name);
+            ?>
+            <div class="ucd-form-field" id="<?php echo $id; ?>-field">
+                <label id="<?php echo $id; ?>-label"
+                    for="<?php echo $id; ?>"
+                >
+                    <input type="checkbox"
+                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                        class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                        id="<?php echo $id; ?>"
+                        value="1"
+                        <?php if ($elem->getValue()): ?>
+                            checked="checked"
+                        <?php endif; ?>
+                    >
+                    <span class="ucd-label-text">
+                        <?php echo $this->escape($elem->getLabel()); ?>
+                        <span class="ucd-help-link-container">
+                            (<a href="#" class="ucd-help-link" data-identifier="<?php echo $name; ?>">help</a>)
+                        </span>
+                    </span>
+                </label>
+            </div>
+
+            <div id="ucd-restart-details"
+                class="ucd-option-details ucd-form-field"
+                <?php if (!$form->getValue('restart')): ?>
+                    style="display: none;"
+                <?php endif; ?>
+            >
+                <label id="<?php echo $id; ?>-details-label"
+                    for="<?php echo $id; ?>"
+                >
+                    Restart after this time duration:
+                </label>
+                <table id="<?php echo $optionId; ?>-details-table"
+                    class="widefat ucd-counter-elements-table"
+                >
+                    <tbody>
+                        <tr>
+                            <?php foreach ($form->getCounterElements() as $key): ?>
+                                <td class="ucd-duration-cell">
+                                    <?php
+                                        $name = "restart_duration_{$key}";
+                                        $elem = $form->getElement($name);
+                                    ?>
+                                    <input type="text" id="ucd-<?php echo $name; ?>"
+                                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                                        class="ucd-duration-input ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                                        value="<?php echo $this->escape($this->padNumber($elem->getValue(), 2)); ?>"
+                                    />
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <?php foreach ($form->getCounterElements() as $key): ?>
+                                <th class="ucd-duration-label-cell">
+                                    <label for="ucd-<?php echo $name; ?>"
+                                        id="ucd-<?php echo $name; ?>-label"
+                                        class="ucd-duration-label"
+                                    >
+                                        <?php echo $this->escape($form->getCounterElementProperty($key, 'label')); ?>
+                                    </label>
+                                </th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <?php
+            $optionKey = 'once';
+            $optionId = "ucd-{$radioName}-{$optionKey}";
+        ?>
+        <div class="ucd-form-field" id="<?php echo $optionId; ?>-field">
+            <label id="<?php echo $optionId; ?>-label"
+                class="ucd-radio-option-container"
+                for="<?php echo $optionId; ?>"
+            >
+                <input type="radio"
+                    name="<?php echo $formName; ?>[<?php echo $radioName; ?>]"
+                    id="<?php echo $optionId; ?>"
+                    value="<?php echo $optionKey; ?>"
+                    <?php if ($radioValue == $optionKey): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                    class="ucd-radio-has-details ucd-<?php echo $radioName; ?> ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                >
+                <span class="ucd-label-text">
+                    <?php echo $this->escape($radioElem->getMultiOption($optionKey)); ?>
+                </span>
+                <span class="ucd-help-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="<?php echo $radioName; ?>-<?php echo $optionKey; ?>">help</a>)
+                </span>
+            </label>
+        </div>
+
+
+        <h4 id="extra_content-section">
+            Show this content, until the countdown finishes
+            <span class="ucd-help-link-container">
+                (<a href="#" class="ucd-help-link" data-identifier="extra_content">help</a>)
+            </span>
+        </h4>
+
+        <?php
+            $name = 'extra_content_above';
+            $elem = $form->getElement($name);
+        ?>
+        <div id="ucd-<?php echo $name; ?>-field"
+            class="ucd-form-field ucd-wysiwyg-field ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+            data-id="ucd-<?php echo $name; ?>"
+        >
+            <label id="ucd-<?php echo $name; ?>-label"
+                for="ucd-<?php echo $name; ?>"
+            >
+                <?php echo $this->escape($elem->getLabel()); ?>:
+            </label>
+            <?php
+                $cfg = Ucd_Application::getConfig()->editor;
+
+                // Combine buttons to a single line
+                $buttons = $cfg->buttons->toArray();
+                $buttons = array(0 => array_merge($buttons[0], $buttons[1]));
+
+                $this->wysiwygEditor($elem->getValue(), "ucd-{$name}", array(
+                    'media_buttons' => 1,
+                    'textarea_name' => "{$formName}[{$name}]",
+                    'textarea_rows' => 5,
+                    'unhide_kitchensink' => TRUE,
+                    'buttons' => $buttons,
+                    'fonts' => $cfg->fonts->toArray(),
+                    'wpautop' => FALSE,
+                    'editor_class' => 'ucd-custom ' . ($elem->getAttrib('-disabled')? 'disabled' : ''),
+                ));
+            ?>
+        </div>
+
+        <?php
+            $name = 'extra_content';
+            $elem = $form->getElement($name);
+        ?>
+        <div id="ucd-<?php echo $name; ?>-field"
+            class="ucd-form-field ucd-wysiwyg-field ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+            data-id="ucd-<?php echo $name; ?>"
+        >
+            <label id="ucd-<?php echo $name; ?>-label"
+                for="ucd-<?php echo $name; ?>"
+            >
+                <?php echo $this->escape($elem->getLabel()); ?>:
+            </label>
+            <?php
+                $cfg = Ucd_Application::getConfig()->editor;
+
+                // Combine buttons to a single line
+                $buttons = $cfg->buttons->toArray();
+                $buttons = array(0 => array_merge($buttons[0], $buttons[1]));
+
+                $this->wysiwygEditor($elem->getValue(), "ucd-{$name}", array(
+                    'media_buttons' => 1,
+                    'textarea_name' => "{$formName}[{$name}]",
+                    'textarea_rows' => 5,
+                    'unhide_kitchensink' => TRUE,
+                    'buttons' => $buttons,
+                    'fonts' => $cfg->fonts->toArray(),
+                    'wpautop' => FALSE,
+                    'editor_class' => 'ucd-custom ' . ($elem->getAttrib('-disabled')? 'disabled' : ''),
+                ));
+            ?>
+        </div>
+
+        <?php
+            $radioName = 'action_type';
+            $radioElem = $form->getElement($radioName);
+            $radioValue = $radioElem->getValue();
+            $radioDisabled = (array) $radioElem->getAttrib('disable');
+        ?>
+
+        <h4><?php echo $this->escape($radioElem->getLabel()); ?>:</h4>
+
+        <?php
+            $optionKey = 'content';
+            $optionId = "ucd-{$radioName}-{$optionKey}";
+            $optionDisabled = in_array($optionKey, $radioDisabled);
+        ?>
+        <div class="ucd-form-field" id="<?php echo $optionId; ?>-field">
+            <label id="<?php echo $optionId; ?>-label"
+                class="ucd-radio-option-container"
+                for="<?php echo $optionId; ?>"
+            >
+                <input type="radio"
+                    name="<?php echo $formName; ?>[<?php echo $radioName; ?>]"
+                    id="<?php echo $optionId; ?>"
+                    value="<?php echo $optionKey; ?>"
+                    <?php if ($radioValue == $optionKey): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                    <?php if ($optionDisabled): ?>
+                        disabled="disabled"
+                    <?php endif; ?>
+                    class="ucd-radio-has-details ucd-<?php echo $radioName; ?> ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                >
+                <span class="ucd-label-text">
+                    <?php echo $this->escape($radioElem->getMultiOption($optionKey)); ?>:
+                </span>
+                <span class="ucd-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="<?php echo $radioName; ?>-<?php echo $optionKey; ?>">help</a>)
+                </span>
+            </label>
+        </div>
+
+        <div id="<?php echo $optionId; ?>-details"
+            class="ucd-option-details"
+            data-details-for-option="<?php echo $optionId; ?>"
+            <?php if ($radioValue != $optionKey): ?>
+                style="display: none;"
+            <?php endif; ?>
+        >
+            <?php
+                $name = 'action_content';
+                $elem = $form->getElement($name);
+            ?>
+            <div id="ucd-<?php echo $name; ?>-field"
+                class="ucd-form-field ucd-wysiwyg-field ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                data-id="ucd-<?php echo $name; ?>"
+            >
+                <?php
+                    $cfg = Ucd_Application::getConfig()->editor;
+                    $buttons = $cfg->buttons->toArray();
+
+                    $this->wysiwygEditor($elem->getValue(), "ucd-{$name}", array(
+                        'media_buttons' => 1,
+                        'textarea_name' => "{$formName}[{$name}]",
+                        'textarea_rows' => 5,
+                        'unhide_kitchensink' => TRUE,
+                        'buttons' => $buttons,
+                        'fonts' => $cfg->fonts->toArray(),
+                        'wpautop' => FALSE,
+                        'editor_class' => 'ucd-custom ' . ($elem->getAttrib('-disabled')? 'disabled' : ''),
+                    ));
+                ?>
+            </div>
+
+            <?php
+                $name = 'action_keep_visible';
+                $id = "ucd-{$name}";
+                $elem = $this->form->getElement($name);
+            ?>
+            <div class="ucd-form-field" id="<?php echo $id; ?>-field">
+                <label id="<?php echo $id; ?>-label"
+                    for="<?php echo $id; ?>"
+                >
+                    <input type="checkbox"
+                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                        id="<?php echo $id; ?>"
+                        class="ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                        value="1"
+                        <?php if ($elem->getValue()): ?>
+                            checked="checked"
+                        <?php endif; ?>
+                    >
+                    <span class="ucd-label-text">
+                        <?php echo $this->escape($elem->getLabel()); ?>.
+                        <span class="ucd-help-link-container">
+                            (<a href="#" class="ucd-help-link" data-identifier="<?php echo $name; ?>">help</a>)
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <?php
+            $optionKey = 'redirect';
+            $optionId = "ucd-{$radioName}-{$optionKey}";
+            $optionDisabled = in_array($optionKey, $radioDisabled);
+        ?>
+        <div class="ucd-form-field" id="<?php echo $optionId; ?>-field">
+            <label id="<?php echo $optionId; ?>-label"
+                class="ucd-radio-option-container"
+                for="<?php echo $optionId; ?>"
+            >
+                <span class="ucd-label-regular">
+                    <input type="radio"
+                        name="<?php echo $formName; ?>[<?php echo $radioName; ?>]"
+                        id="<?php echo $optionId; ?>"
+                        value="<?php echo $optionKey; ?>"
+                        <?php if ($radioValue == $optionKey): ?>
+                            checked="checked"
+                        <?php endif; ?>
+                        <?php if ($optionDisabled): ?>
+                            disabled="disabled"
+                        <?php endif; ?>
+                        class="ucd-radio-has-details ucd-<?php echo $radioName; ?> ucd-custom<?php if ($radioElem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                    >
+                    <span class="ucd-label-text">
+                        <?php echo $this->escape($radioElem->getMultiOption($optionKey)); ?>:
+                    </span>
+                </span>
+            </label>
+
+            <?php
+                $name = 'action_redirect_url';
+                $elem = $this->form->getElement($name);
+            ?>
+            <input type="text"
+                name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                id="ucd-<?php echo $name; ?>"
+                value="<?php echo $this->escape($elem->getValue()); ?>"
+                class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif; ?> ucd-for-option"
+                data-for-option="<?php echo $optionId; ?>"
+            />
+
+            <span class="ucd-help-link-container">
+                (<a href="#" class="ucd-help-link" data-identifier="<?php echo $radioName; ?>-<?php echo $optionKey; ?>">help</a>)
+            </span>
+        </div>
+
+        <div id="ucd-appearance-block"
+            <?php if ('once' == $form->getValue('expiration_type')): ?>
+                class="ucd-appearance-block-hidden"
+            <?php endif; ?>
+        >
+            <h4>
+                Customize Countdown Appearance
+                <span class="ucd-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="appearance">help</a>)
+                </span>
+            </h4>
+
+            <div class="ucd-form-field" id="appearance-field">
+                <?php
+                    $name = 'appearance_font_family';
+                    $elem = $form->getElement($name);
+                    $value = $elem->getValue();
+                ?>
+                <select id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    title="<?php echo $this->escape($elem->getLabel()); ?>"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif; ?>"
+                >
+                    <option
+                        id="ucd-<?php echo $name; ?>-empty"
+                        value=""
+                    >
+                        <?php echo $this->escape($elem->getAttrib('-empty-label')); ?>
+                    </option>
+                    <?php foreach ($elem->getMultiOptions() as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo $this->escape($label); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <?php
+                    $name = 'appearance_size';
+                    $elem = $form->getElement($name);
+                    $value = $elem->getValue();
+                ?>
+                <select id="ucd-<?php echo $name; ?>"
+                    name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                    title="<?php echo $this->escape($elem->getLabel()); ?>"
+                    class="ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif; ?>"
+                >
+                    <?php foreach ($elem->getMultiOptions() as $key=>$label): ?>
+                        <option
+                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                            value="<?php echo $key; ?>"
+                            <?php if ($key == $value): ?>
+                                selected="selected"
+                            <?php endif; ?>
+                        >
+                            <?php echo $this->escape($label); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <?php
+                    echo $this->partial('admin/partial/toolbar/color.phtml', array(
+                        'form' => $form,
+                        'name' => 'appearance_color',
+                        'formName' => $formName,
+                    ));
+                ?>
+
+                <?php
+                    echo $this->partial('admin/partial/toolbar/switch.phtml', array(
+                        'form' => $form,
+                        'name' => 'appearance_font_bold',
+                        'formName' => $formName,
+                    ));
+                ?>
+
+                <?php
+                    echo $this->partial('admin/partial/toolbar/switch.phtml', array(
+                        'form' => $form,
+                        'name' => 'appearance_font_italic',
+                        'formName' => $formName,
+                    ));
+                ?>
+
+                <?php
+                    echo $this->partial('admin/partial/toolbar/color.phtml', array(
+                        'form' => $form,
+                        'name' => 'appearance_background_color',
+                        'formName' => $formName,
+                    ));
+                ?>
+            </div>
+
+            <h4>Names and Visibility of Labels:</h4>
+            <div class="ucd-form-field" id="ucd-elements-table-field">
+                <table id="ucd-elements-table"
+                    class="widefat ucd-counter-elements-table"
+                >
+                    <thead>
+                        <?php
+                            $name = 'elements_visible';
+                            $elem = $form->getElement($name);
+                            $value = (array)$elem->getValue();
+                        ?>
+                        <tr>
+                            <?php foreach ($form->getCounterElements() as $key): ?>
+                                <th class="ucd-<?php echo $name; ?>-cell">
+                                    <label for="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                                        id="ucd-<?php echo $name; ?>-<?php echo $key; ?>-label"
+                                        class="ucd-<?php echo $name; ?>-label"
+                                    >
+                                        <input type="checkbox"
+                                            id="ucd-<?php echo $name; ?>-<?php echo $key; ?>"
+                                            name="<?php echo $formName; ?>[<?php echo $name; ?>][]"
+                                            value="<?php echo $key; ?>"
+                                            <?php if (in_array($key, $value)): ?>
+                                                checked="checked"
+                                            <?php endif; ?>
+                                            class="ucd-<?php echo $name; ?>-input ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                                        />
+                                        <span class="ucd-label-text">
+                                            <?php echo $this->escape($form->getCounterElementProperty($key, 'label')); ?>
+                                        </span>
+                                    </label>
+                                </th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($form->getCounterElements() as $key): ?>
+                                <td class="ucd-element_label-cell">
+                                    <?php
+                                        $name = "element_label_{$key}";
+                                        $elem = $form->getElement($name);
+                                    ?>
+                                    <input type="text" id="ucd-<?php echo $name; ?>"
+                                        name="<?php echo $formName; ?>[<?php echo $name; ?>]"
+                                        data-key="<?php echo $key; ?>"
+                                        class="ucd-element_label-input ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+                                        value="<?php echo $this->escape($elem->getValue()); ?>"
+                                    />
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Countdown Live Preview:</h4>
+
+            <?php
+                echo $this->partial('admin/partial/preview.phtml', array(
+                    'postId' => $postId,
+                ));
+            ?>
+        </div>
+
+        <div class="ucd-buttons-container">
+            <div class="ucd-buttons-clear_history-container">
+                <button type="button"
+                    id="ucd-button-clear_history"
+                    class="button-secondary ucd-button-clear_history"
+                >
+                    Clear My Visit History
+                </button>
+                <img class="ucd-ajax-loader"
+                    id="ucd-ajax-loader-clear_history"
+                    src="<?php echo esc_url(admin_url('images/wpspin_light.gif')); ?>"
+                    alt="Clearing..." width="16" height="16"
+                />
+                <span class="ucd-help-link-container ucd-button-help-link-container">
+                    (<a href="#" class="ucd-help-link" data-identifier="clear_history">help</a>)
+                </span>
+            </div>
+
+            <div class="ucd-buttons-submit-container">
+                <button type="button"
+                    id="ucd-button-update"
+                    class="button-primary ucd-button-update"
+                >
+                    Save Countdown and Update
+                </button>
+                <img class="ucd-ajax-loader"
+                    id="ucd-metabox-ajax_loader"
+                    src="<?php echo esc_url(admin_url('images/wpspin_light.gif')); ?>"
+                    alt="Saving..." width="16" height="16"
+                />
+            </div>
+
+            <hr>
+
+            <div class="ucd-embed-container">
+                <div class="ucd-embed-container-buttons">
+                    <button type="button"
+                        id="ucd-button-embed"
+                        class="button ucd-button-embed"
+                        data-label-show="Get Embed Code &gt;&gt;"
+                        data-label-hide="&lt;&lt; Hide Embed Code"
+                    >
+                        Get Embed Code &gt;&gt;
+                    </button>
+                    <span class="ucd-help-link-container ucd-button-help-link-container">
+                        (<a href="#" class="ucd-help-link" data-identifier="embed">help</a>)
+                    </span>
+                </div>
+                <div id="ucd-embed-code-container"
+                    class="ucd-embed-code-container">
+                    <textarea id="ucd-embed-code"
+                        class="ucd-embed-code"
+                        readonly="readonly"
+                    >&lt;script type=&quot;text/javascript&quot; src=&quot;<?php echo Ucd_WpPlugin::getPluginBaseUrl(); ?>embed.php?post_id=<?php echo $postId; ?>&quot;&gt;&lt;/script&gt;</textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+$helpPath = UCD_APPLICATION_PATH . '/views/scripts/admin/help/';
+$localHelpPath = dirname(__FILE__) . '/help/';
+$localFields = $form->getLocalFields();
+
+foreach ($this->form->getElements() as $name=>$elem) {
+    if (FALSE === $elem->getAttrib('-help')) {
+        continue;
+    }
+
+    $path = in_array($name, $localFields)
+        ? $localHelpPath
+        : $helpPath;
+
+    switch ($elem->getType()) {
+        case 'UcdZend_Form_Element_Radio':
+            foreach ($elem->getMultiOptions() as $key=>$label) {
+                echo $this->partial('_help/popup.phtml', array(
+                    'identifier' => "{$name}-{$key}",
+                    'title' => "{$elem->getLabel()}: {$label}",
+                    'path' =>  $path . "{$name}-{$key}.phtml",
+                ));
+            }
+            break;
+
+        default:
+            echo $this->partial('_help/popup.phtml', array(
+                'identifier' => $name,
+                'title' => $elem->getLabel(),
+                'path' => $path . $name . '.phtml',
+            ));
+    }
+}
+$customTips = array(
+    'appearance' => 'Customize Countdown Appearance',
+    'clear_history' => 'Clear My Visit History',
+    'embed' => 'Get Embed Code',
+    'extra_content' => 'Show this content, until the countdown finishes',
+);
+foreach ($customTips as $id=>$label) {
+    echo $this->partial('_help/popup.phtml', array(
+        'identifier' => $id,
+        'title' => $label,
+        'path' => $helpPath . $id . '.phtml',
+    ));
+}
+
+// Customize UI data
+$data = $form->getUiData();
+foreach ($form->getCounterElements() as $key) {
+    $name = "expiration_duration_{$key}";
+    $data['defaultValues'][$name] = $this->padNumber($data['defaultValues'][$name], 2);
+}
+
+?>
+<script type="text/javascript">
+/* <![CDATA[ */
+    var ucd_admin = <?php echo json_encode($data); ?>
+/* ]]> */
+</script>

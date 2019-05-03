@@ -1,0 +1,17 @@
+<div id="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-block-<?php echo $this->identifier;?>" class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-block" style="display: none;">
+    <div class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-header">
+        <?php echo $this->title; ?>
+        <a href="#" class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-close <?php echo Ucd_WpPlugin::PREFIX; ?>-help-close-image"><img src="<?php echo Ucd_WpPlugin::getPluginBaseUrl();?>images/close-help.gif" width="16" height="16" alt="Close" title="Close" /></a>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-body">
+        <?php if (isset($this->content)): ?>
+            <?php echo $this->content; ?>
+        <?php else: ?>
+            <?php require_once $this->path; ?>
+        <?php endif; ?>
+    </div>
+    <div class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-footer">
+        <a href="#" class="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-close <?php echo Ucd_WpPlugin::PREFIX; ?>-help-close-text">close</a>
+    </div>
+</div>

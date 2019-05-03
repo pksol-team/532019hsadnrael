@@ -1,0 +1,7 @@
+<?php $this->getHelper('StripNewLines')->start(); ?>
+<span id="ucd-placeholder-<?php echo $countdownId; ?>">
+    <img alt="Loading..."
+        src="<?php echo Ucd_WpPlugin::getPluginBaseUrl();?>/images/ajax-placeholder/<?php echo $widget->getValue('appearance_size'); ?>.gif"
+    >
+</span>
+<?php $this->getHelper('StripNewLines')->finish(); ?>

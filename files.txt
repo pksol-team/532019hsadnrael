@@ -1,0 +1,3 @@
+e:/xampp/htdocs/learn/wp-content/plugins/sfwd-lms/includes/quiz/ld-quiz-pro.php
+e:/xampp/htdocs/learn/wp-content/plugins/sfwd-lms/includes/ld-certificates.php
+e:/xampp/htdocs/learn/wp-content/plugins/sfwd-lms/includes/class-ld-cpt-instance.php

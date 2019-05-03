@@ -1,0 +1,37 @@
+<?php
+if (!isset($this->pageIcon)) {
+    $this->pageIcon = Ucd_WpPlugin::PREFIX . '-admin_icon';
+}
+if (!isset($this->containerId)) {
+    $this->containerId = Ucd_WpPlugin::PREFIX . '-admin';
+}
+?>
+<div id="<?php echo Ucd_WpPlugin::PREFIX; ?>-help-bkg" style="display: none;"></div>
+<div class="wrap" id="<?php echo $this->containerId; ?>">
+    <?php if ($this->announcement): ?>
+        <div class="announcement">
+            <?php echo $this->announcement; ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="icon32" id="<?php echo $this->pageIcon; ?>"></div>
+    <h2><?php echo $this->escape(''!= $this->pageTitle? $this->pageTitle : Ucd_WpPlugin::TITLE); ?></h2>
+
+    <div id="messages-container">
+        <?php if ($this->messages): ?>
+            <?php foreach ($this->messages as $message): ?>
+                <div class="<?php echo $message['class'];?>">
+                    <p><strong><?php echo $message['text']; ?></strong></p>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+
+    <?php if (!$this->hideHeaderTabs): ?>
+        <?php require 'admin/headerTabs.phtml'; ?>
+    <?php endif; ?>
+
+    <?php echo $this->content; ?>
+
+    <div class="clear"></div>
+</div>

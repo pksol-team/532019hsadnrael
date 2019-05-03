@@ -1,0 +1,757 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: LearnDash LMS - Notifications\n"
+"POT-Creation-Date: 2017-10-18 14:51+0700\n"
+"PO-Revision-Date: 2017-10-18 14:51+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.13\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: learndash-notifications.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ignore/learndash-notifications/includes/admin/class-settings.php:100
+#: includes/admin/class-settings.php:100
+msgctxt "Menu Label"
+msgid "Notifications"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/admin/class-settings.php:113
+#: ignore/learndash-notifications/includes/admin/class-settings.php:126
+#: ignore/learndash-notifications/includes/admin/class-settings.php:133
+#: ignore/learndash-notifications/includes/post-type.php:12
+#: ignore/learndash-notifications/includes/post-type.php:23
+#: includes/admin/class-settings.php:113 includes/admin/class-settings.php:126
+#: includes/post-type.php:12 includes/post-type.php:23
+msgid "Notifications"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/admin/class-settings.php:180
+#: includes/admin/class-settings.php:163
+msgid "Cheatin huh?"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:6
+#: includes/meta-box.php:6
+msgid "Notification Settings"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:8
+#: includes/meta-box.php:8
+msgid "Available Shortcodes"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:39
+#: includes/meta-box.php:39
+msgid ""
+"Select an email trigger on the notification settings above to see available "
+"shortcodes."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:46
+#: includes/meta-box.php:46
+msgid "Here are the available shortcodes for the email trigger selected:"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:61
+#: includes/meta-box.php:61
+msgid "<em>Cumulative</em> is average for all quizzes of the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:63
+#: includes/meta-box.php:63
+msgid "<em>Aggregate</em> is sum for all quizzes of the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:109
+#: includes/meta-box.php:115
+msgid "Email trigger"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:110
+#: includes/meta-box.php:116
+msgid "When this email will be sent."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:112
+#: includes/meta-box.php:120
+msgid "-- Select an Email Trigger --"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:113
+#: includes/meta-box.php:122
+msgid "User enrolls into a course"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:114
+#: includes/meta-box.php:123
+msgid "User completes a course"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:115
+#: includes/meta-box.php:124
+msgid "User completes a lesson"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:116
+#: includes/meta-box.php:125
+msgid "A scheduled lesson is available to user"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:117
+#: includes/meta-box.php:126
+msgid "User completes a topic"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:118
+#: includes/meta-box.php:127
+msgid "User passes a quiz"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:119
+#: includes/meta-box.php:128
+msgid "User fails a quiz"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:120
+#: includes/meta-box.php:129
+msgid "User completes a quiz"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:121
+#: includes/meta-box.php:130
+msgid "An Assignment is uploaded"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:122
+#: includes/meta-box.php:131
+msgid "An Assignment is approved"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:123
+#: includes/meta-box.php:132
+msgid "User hasn't logged in for \"X\" days"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:124
+#: includes/meta-box.php:133
+msgid "\"X\" days before course expires"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:125
+#: includes/meta-box.php:134
+msgid "Essay question has been put into graded status"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:131
+#: includes/meta-box.php:152
+msgid "Course"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:132
+#: includes/meta-box.php:153
+msgid "Course that the notification is assigned to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:136
+#: includes/meta-box.php:158
+msgid "-- Select Course --"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:137
+#: ignore/learndash-notifications/includes/post-type.php:122
+#: includes/meta-box.php:159 includes/post-type.php:122
+msgid "All Courses"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:142
+#: includes/meta-box.php:164
+msgid "Lesson"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:143
+#: includes/meta-box.php:165
+msgid "Lesson that the notification is assigned to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:147
+#: includes/meta-box.php:170
+msgid "-- Select Lesson --"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:148
+#: includes/meta-box.php:171
+msgid "All Lessons"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:153
+#: includes/meta-box.php:176
+msgid "Topic"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:154
+#: includes/meta-box.php:177
+msgid "Topic that the notification is assigned to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:158
+#: includes/meta-box.php:182
+msgid "-- Select Topic --"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:159
+#: includes/meta-box.php:183
+msgid "All Topics"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:164
+#: includes/meta-box.php:188
+msgid "Quiz"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:165
+#: includes/meta-box.php:189
+msgid "Quiz that the notification is assigned to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:169
+#: includes/meta-box.php:194
+msgid "-- Select Quiz --"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:170
+#: includes/meta-box.php:195
+msgid "All Quizzes"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:175
+#: includes/meta-box.php:200
+msgid "After how many days?"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:176
+#: ignore/learndash-notifications/includes/meta-box.php:186
+#: includes/meta-box.php:201 includes/meta-box.php:211
+msgid "Setting associated with the email trigger setting above."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:177
+#: ignore/learndash-notifications/includes/meta-box.php:187
+#: ignore/learndash-notifications/includes/meta-box.php:218
+#: includes/meta-box.php:202 includes/meta-box.php:212
+#: includes/meta-box.php:252
+msgid "day(s)"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:185
+#: includes/meta-box.php:210
+msgid "Before how many days?"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:205
+#: includes/meta-box.php:230
+msgid "Recipient"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:206
+#: includes/meta-box.php:231
+msgid "Recipient of this email."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:209
+#: includes/meta-box.php:235
+msgid "User"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:210
+#: includes/meta-box.php:236
+msgid "Group Leader"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:211
+#: includes/meta-box.php:237
+msgid "Admin"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:216
+#: includes/meta-box.php:250
+msgid "Delay"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:217
+#: includes/meta-box.php:251
+msgid ""
+"How many days this email is delayed after the trigger occurs (default is 0)."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:263
+#: ignore/metabox.php:9 ignore/metabox.php:42 includes/meta-box.php:307
+msgid "Click for Help!"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:396
+#: includes/meta-box.php:443
+msgid "Display user's username."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:397
+#: includes/meta-box.php:444
+msgid "Display user's email."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:398
+#: includes/meta-box.php:445
+msgid "Display user's display name."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:399
+#: includes/meta-box.php:446
+msgid "Display user's first name."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:400
+#: includes/meta-box.php:447
+msgid "Display user's last name."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:404
+#: includes/meta-box.php:455
+msgid "Display course title."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:408
+#: includes/meta-box.php:460
+msgid ""
+"Display time when course is completed. <a href=\"http://php.net/manual/en/"
+"function.date.php\" target=\"_blank\">Click here</a> to see format options."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:409
+#: includes/meta-box.php:461
+msgid "Display average points scored across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:410
+#: includes/meta-box.php:462
+msgid "Display average points got across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:411
+#: includes/meta-box.php:463
+msgid "Display average total points got across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:412
+#: includes/meta-box.php:464
+msgid ""
+"Display average correct answers percentage across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:413
+#: includes/meta-box.php:465
+msgid "Display average time spent across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:414
+#: includes/meta-box.php:466
+msgid ""
+"Display average correct answer counted across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:415
+#: includes/meta-box.php:467
+msgid ""
+"Display sum of correct answers percentage across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:416
+#: includes/meta-box.php:468
+msgid "Display sum of points scored across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:417
+#: includes/meta-box.php:469
+msgid "Display sum of points got across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:418
+#: includes/meta-box.php:470
+msgid "Display sum of total points got across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:419
+#: includes/meta-box.php:471
+msgid "Display sum of time spent across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:420
+#: includes/meta-box.php:472
+msgid "Display sum of correct answer counted across all quizzes on the course."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:424
+#: includes/meta-box.php:476
+msgid "Display lesson title."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:428
+#: includes/meta-box.php:481
+msgid "Display topic title."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:432
+msgid "Display time when the quiz is taken."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:433
+#: includes/meta-box.php:488
+msgid "Display correct percentage of the quiz."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:434
+#: includes/meta-box.php:489
+msgid ""
+"Display whether the user passes the quiz or not. Display \"Yes\" or \"No\"."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:435
+#: includes/meta-box.php:490
+msgid "Display quiz title."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:436
+#: includes/meta-box.php:491
+msgid "Display course title that quiz belongs to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:437
+#: includes/meta-box.php:492
+msgid "Display how long is taken to complete the quiz."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:441
+#: includes/meta-box.php:496
+msgid "Display total points earned."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:442
+#: includes/meta-box.php:497
+msgid "Display total points possible for the essay."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:446
+#: includes/meta-box.php:501
+msgid "Display assignment title."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:447
+#: includes/meta-box.php:502
+msgid "Display assignment file name."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:448
+#: includes/meta-box.php:503
+msgid "Display assignment file link."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:449
+#: includes/meta-box.php:504
+msgid "Display lesson title that the assignment belongs to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/meta-box.php:450
+#: includes/meta-box.php:505
+msgid "Display lesson type that the assignment belongs to."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/notification.php:474
+#: includes/notification.php:945
+#, php-format
+msgid "New comment on assignment \"%s\""
+msgstr ""
+
+#. translators: 1: comment author, 2: author IP, 3: author domain
+#: ignore/learndash-notifications/includes/notification.php:476
+#: includes/notification.php:947
+#, php-format
+msgid "Author: %1$s (IP: %2$s, %3$s)"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/notification.php:477
+#: includes/notification.php:948
+#, php-format
+msgid "Email: %s"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/notification.php:478
+#: includes/notification.php:949
+#, php-format
+msgid "Comment: %s"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/notification.php:479
+#: includes/notification.php:950
+msgid "You can see all comments on this assignment here:"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/notification.php:481
+#: includes/notification.php:952
+#, php-format
+msgid "Permalink: %s"
+msgstr ""
+
+#. translators: 1: blog name, 2: post title
+#: ignore/learndash-notifications/includes/notification.php:484
+#, php-format
+msgid "Assignment Comment: \"%1$s\""
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:13
+#: includes/post-type.php:13
+msgid "Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:14
+#: includes/post-type.php:14
+msgctxt "learndash-notifications"
+msgid "Add New Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:15
+#: includes/post-type.php:15
+msgid "Add New Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:16
+#: includes/post-type.php:16
+msgid "Edit Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:17
+#: includes/post-type.php:17
+msgid "New Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:18
+#: includes/post-type.php:18
+msgid "View Notification"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:19
+#: includes/post-type.php:19
+msgid "Search Notifications"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:20
+#: includes/post-type.php:20
+msgid "No Notification found"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:21
+#: includes/post-type.php:21
+msgid "No Notification found in Trash"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:22
+#: includes/post-type.php:22
+msgid "Parent Notification:"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:29
+#: includes/post-type.php:29
+msgid "Notifications created for LearnDash."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:64
+#: ignore/learndash-notifications/includes/post-type.php:67
+#: includes/post-type.php:64 includes/post-type.php:67
+msgid "Notification updated."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:65
+#: includes/post-type.php:65
+msgid "Custom field updated."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:66
+#: includes/post-type.php:66
+msgid "Custom field deleted."
+msgstr ""
+
+#. translators: %s: date and time of the revision
+#: ignore/learndash-notifications/includes/post-type.php:69
+#: includes/post-type.php:69
+#, php-format
+msgid "Notification restored to revision from %s."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:70
+#: includes/post-type.php:70
+msgid "Notification published."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:71
+#: includes/post-type.php:71
+msgid "Notification saved."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:72
+#: includes/post-type.php:72
+msgid "Notification submitted."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:74
+#: includes/post-type.php:74
+msgid "Notification draft updated."
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:96
+#: includes/post-type.php:96
+msgid "Trigger"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:141
+#: includes/post-type.php:141
+msgid "All lessons"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:160
+#: includes/post-type.php:160
+msgid "All topics"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:179
+#: includes/post-type.php:179
+msgid "All quizzes"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:234
+#: includes/post-type.php:234
+#, php-format
+msgid "Select %s"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:235
+#: includes/post-type.php:235
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/post-type.php:250
+#: includes/post-type.php:250
+msgid "Select Trigger"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/shortcode.php:246
+#: includes/shortcode.php:281
+msgid "Yes"
+msgstr ""
+
+#: ignore/learndash-notifications/includes/shortcode.php:246
+#: includes/shortcode.php:281
+msgid "No"
+msgstr ""
+
+#: includes/admin/class-settings.php:133
+msgid "Add New"
+msgstr ""
+
+#: includes/cron.php:41
+msgid "Every Minute"
+msgstr ""
+
+#: includes/meta-box.php:121
+msgid "User enrolls into a group"
+msgstr ""
+
+#: includes/meta-box.php:140
+msgid "Group"
+msgstr ""
+
+#: includes/meta-box.php:141
+msgid "Group that the notification is assigned to."
+msgstr ""
+
+#: includes/meta-box.php:146
+msgid "-- Select Group --"
+msgstr ""
+
+#: includes/meta-box.php:147
+msgid "All Groups"
+msgstr ""
+
+#: includes/meta-box.php:242
+msgid "Additional Recipient"
+msgstr ""
+
+#: includes/meta-box.php:243
+msgid ""
+"Additional email addresses (separated by comma) that will also get this "
+"notification"
+msgstr ""
+
+#: includes/meta-box.php:451
+msgid "Display group title."
+msgstr ""
+
+#: includes/meta-box.php:456
+msgid "Display course URL."
+msgstr ""
+
+#: includes/meta-box.php:477
+msgid "Display lesson URL."
+msgstr ""
+
+#: includes/meta-box.php:482
+msgid "Display topic URL."
+msgstr ""
+
+#: includes/meta-box.php:486
+msgid "Display quiz URL."
+msgstr ""
+
+#: includes/meta-box.php:487
+msgid ""
+"Display time when the quiz is taken. <a href=\"http://php.net/manual/en/"
+"function.date.php\" target=\"_blank\">Click here</a> to see format options."
+msgstr ""
+
+#: includes/notification.php:933
+msgid "Assignment"
+msgstr ""
+
+#: includes/notification.php:935
+msgid "Essay"
+msgstr ""
+
+#. translators: 1: title, 2: post title
+#: includes/notification.php:955
+#, php-format
+msgid "%1$s Comment: \"%2$s\""
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "LearnDash LMS - Notifications"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Create and send notification emails to the users."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "LearnDash"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.learndash.com/"
+msgstr ""

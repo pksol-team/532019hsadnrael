@@ -1,0 +1,8 @@
+/**
+ * Theme Options styles and Metaboxes styles.
+*/
+
+.mtral h4{margin:7px 0 5px 0 !important;}
+.mtral .block{display: block;clear: both}
+.mtral .block label{display: block;clear: both;margin: 5px 20px !important}
+.mtral .block label input, .mtral .block label select, .mtral .block label span{width: 250px;display: inline-block;}

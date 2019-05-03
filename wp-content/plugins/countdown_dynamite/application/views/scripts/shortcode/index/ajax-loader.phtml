@@ -1,0 +1,27 @@
+<?php $this->getHelper('StripNewLines')->start(); ?>
+<span id="ucd-ajax-placeholder-<?php echo $countdownId; ?>" class="ucd-ajax-placeholder ucd-ajax-placeholder-size-<?php echo $widget->getValue('appearance_size'); ?>"></span>
+<script type="text/javascript">
+jQuery(function($) {
+    $.ajax({
+        type: 'POST',
+        url: ucd.ajaxurl,
+        dataType: 'html',
+        data: {
+            action: 'ucd',
+            controller: 'frontend-ajax',
+            postId: <?php echo $postId; ?>,
+            countdownId: <?php echo $countdownId; ?>,
+            allowRedirect: <?php echo ($allowRedirect? '1' : '0'); ?>
+        },
+        success: function(data) {
+            $('#ucd-ajax-placeholder-<?php echo $countdownId; ?>').replaceWith(data);
+        },
+        error: function(xhr) {
+            alert('AJAX error.');
+        },
+        complete: function() {
+        }
+    });
+});
+</script>
+<?php $this->getHelper('StripNewLines')->finish(); ?>

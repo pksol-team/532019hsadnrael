@@ -1,0 +1,50 @@
+{
+    "name": "getresponse/getresponse-for-wordpress",
+    "description": "Getresponse plugin for wordpress",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Getresponse Team",
+            "email": "grintegrations@getresponse.com"
+        }
+    ],
+    "license": "GPL-2.0+",
+    "require": {
+        "php" : ">=5.4"
+    },
+    "autoload" : {
+        "classmap" : [
+            "getresponse/",
+            "gr-buddypress/",
+            "gr-contact-form-7",
+            "gr-core/",
+            "gr-ecommerce/",
+            "gr-page/",
+            "gr-schedule-job/",
+            "gr-settings/",
+            "gr-tracking-code/",
+            "gr-landing-pages/",
+            "gr-widgets/",
+            "gr-woocommerce/"
+        ],
+        "files" : [
+            "class-getresponse.php",
+            "gr-buddypress/gr-buddypress-actions.php",
+            "gr-landing-pages/gr-landing-page-actions.php",
+            "gr-contact-form-7/gr-contact-form-7-actions.php",
+            "gr-contact-form-7/classes/class-gr-contact-form-7.php",
+            "gr-ninja-forms/gr-ninja-forms-actions.php",
+            "gr-ninja-forms/classes/class-gr-ninja-forms.php",
+            "gr-core/gr-country-code-converter.php",
+            "gr-core/admin/gr-core-admin-actions.php",
+            "gr-ecommerce/gr-ecommerce-actions.php",
+            "gr-page/gr-page-actions.php",
+            "gr-settings/gr-settings-filters.php",
+            "gr-settings/gr-settings-actions.php",
+            "gr-tracking-code/gr-tracking-code-actions.php",
+            "gr-widgets/gr-widgets-actions.php",
+            "gr-woocommerce/gr-woocommerce-actions.php",
+            "gr-templates/admin/settings/functions.php"
+        ]
+    }
+}

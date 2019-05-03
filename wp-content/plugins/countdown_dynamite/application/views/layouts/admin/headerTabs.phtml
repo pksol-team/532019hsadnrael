@@ -1,0 +1,26 @@
+<ul class="subsubsub">
+<?php if ($this->headerTabs): ?>
+    <?php
+        $count = count($this->headerTabs);
+        $i = 1;
+    ?>
+    <?php foreach ($this->headerTabs as $key=>$tab) : ?>
+        <li>
+            <a href="<?php echo $this->escape($tab['url']); ?>"
+                <?php if ($key == $this->currentHeaderTab): ?>
+                    class="current"
+                <?php endif; ?>
+            >
+                <?php echo $this->escape($tab['label']); ?>
+            </a>
+            <?php echo ($i < $count)? ' | ' : ' || '; ?>
+        </li>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+    <li><a href="<?php echo Ucd_WpPlugin::PLUGIN_BASE_URL; ?>updates.html" target="_blank">Updates</a> | </li>
+    <li><a href="<?php echo Ucd_WpPlugin::PLUGIN_BASE_URL; ?>affiliates.html" target="_blank">Affiliates</a> | </li>
+    <li><a href="<?php echo Ucd_WpPlugin::AUTHOR_BASE_URL; ?>all-our-plugins" target="_blank">All Our Plugins</a> | </li>
+    <li><a href="<?php echo Ucd_WpPlugin::PLUGIN_BASE_URL; ?>contact.html" target="_blank">Contact Us</a></li>
+</ul>
+<div class="clear"></div>

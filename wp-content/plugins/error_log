@@ -1,0 +1,1 @@
+[07-Nov-2018 15:46:33 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home/braniffi/public_html/cl/wp-content/plugins/hello.php on line 59

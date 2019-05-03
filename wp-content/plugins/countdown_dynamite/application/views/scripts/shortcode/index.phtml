@@ -1,0 +1,9 @@
+<?php
+Ucd_WpPlugin::$countdownId++;
+$countdownId = Ucd_WpPlugin::$countdownId;
+
+if (Ucd_Application::getModel('Options')->getValue('ajax_mode')) {
+    require dirname(__FILE__) . '/index/ajax-loader.phtml';
+} else {
+    require dirname(__FILE__) . '/../counter.phtml';
+}

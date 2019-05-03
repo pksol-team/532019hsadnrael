@@ -1,0 +1,17 @@
+<?php
+$elem = $form->getElement($name);
+$value = (bool)$elem->getValue();
+?>
+<button type="button"
+    id="ucd-<?php echo $name; ?>-button"
+    class="ucd-toolbar-button ucd-toolbar-button-switch ucd-toolbar-action-<?php echo $elem->getAttrib('-action'); ?><?php if ($value): ?> ucd-active<?php endif; ?> ucd-custom<?php if ($elem->getAttrib('-disabled')): ?> disabled<?php endif;?>"
+    title="<?php echo $this->escape($elem->getLabel()); ?>"
+>
+    <span class="ucd-toolbar-icon"></span>
+</button>
+<input type="hidden"
+    id="ucd-<?php echo $name; ?>-button-input"
+    name="<?php if (isset($formName)): ?><?php echo $formName;?>[<?php echo $name;?>]<? else: ?><?php echo $name;?><?php endif; ?>"
+    value="<?php echo $value? 1 : 0; ?>"
+    class="ucd-custom"
+/>

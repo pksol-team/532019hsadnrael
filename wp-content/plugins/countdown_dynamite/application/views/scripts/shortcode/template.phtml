@@ -1,0 +1,20 @@
+<?php
+$styles = $widget->getCssStyles();
+$fill = $widget->isExpired()? '0' : '&nbsp;';
+?>
+<span id="ucd-countdown-<?php echo $id; ?>"
+      class="ucd-countdown ucd-countdown-size-<?php echo $widget->getValue('appearance_size'); ?>"
+      data-orig-size="<?php echo $widget->getValue('appearance_size'); ?>"
+      data-countdown-id="<?php echo $id; ?>"
+      data-post-id="<?php echo $widget->getPostId(); ?>"
+      <?php if ($styles): ?>style="<?php foreach ($styles as $attrib=>$value): ?><?php echo $attrib; ?>: <?php echo $this->escape($value); ?>; <?php endforeach; ?>"<?php endif; ?>
+><!-- no space
+    <?php foreach ($widget->getElements() as $key=>$element): ?>
+        --><span class="ucd-countdown-dash ucd-countdown-dash-<?php echo $key; ?><?php if (!$element['visible']): ?> ucd-countdown-dash-hidden<?php endif; ?>">
+            <span class="ucd-countdown-dash_title"><?php echo $this->escape($element['label']); ?></span>
+            <span class="ucd-countdown-digit"><?php echo $fill; ?></span>
+            <span class="ucd-countdown-digit"><?php echo $fill; ?></span>
+        </span><!-- no space
+    <?php endforeach; ?>
+    no space -->
+</span>

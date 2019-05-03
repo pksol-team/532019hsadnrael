@@ -1,0 +1,6 @@
+sftp-config.json
+*.TODO
+*.zip
+ignore/
+*.sublime-project
+*.sublime-workspace
