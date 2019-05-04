@@ -1228,6 +1228,7 @@ class LD_QuizPro {
 							'message' 		=> 	esc_html__( 'PRINT YOUR CERTIFICATE', 'learndash' )
 						)
 					), $user_id, $quiz_post_id ) . '</a>';
+					$ret .= '<br><br>';
 					$content .= $ret;
 				}
 
