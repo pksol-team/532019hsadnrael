@@ -5,3 +5,6 @@
 	src: url("/wp-content/plugins/sfwd-lms/assets/Edwardian-Script-ITC_15099.ttf");
 }
 
+.dnn {
+	display: none !important;
+}
