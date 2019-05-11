@@ -92,10 +92,12 @@ function get_form() {
 	$last_name = get_user_meta($user_id, 'last_name', true);
 	$rut = get_user_meta($user_id, 'rut', true);
 
+	$congo_img = plugin_dir_url( __FILE__ ) . 'congo.jpeg';
+
 	echo '
-
-		<p>Congratulations! You have finished your course at Braniff Institute. Fill in the following information to print your accreditationsfor free or request them at home from $ 22,500:</p>
-
+		<p>Congratulations! You have finished your course at Braniff Institute. Fill in the following information to print your accreditations for free or request them at home from $ 22,500:</p>
+		<img src="'.$congo_img.'" style="display: block">
+		<br>
 		<form class="profile_form">
 
 			<input type="hidden" name="action" value="submit_profile_form">
@@ -171,3 +173,45 @@ function submit_profile_form() {
 	die();
 
 }
+
+add_action( 'wp_ajax_send_email', 'send_email' );
+function send_email() {
+
+	$login_user = wp_get_current_user();
+	$user_email = $login_user->data->user_email;
+
+	$subject = 'Home Delivery User Data';
+
+	$to = get_option('admin_email');
+	$to = 'nomanaadma@gmail.com';
+
+	$user_data = json_decode($_POST['user_data']);
+	$first_name = $user_data['first_name'];
+	$last_name = $user_data['last_name'];
+	$RUT = $user_data['rut'];
+
+	$name = $first_name.' '.$last_name;
+
+	$email_data = '
+		First Name: '.$first_name.' <br>
+		Last Name: '. $last_name .` <br>
+		RUT: `. $RUT .` <br>
+		<h3>User Data</h3>
+	`;
+
+	$email_data .= $_POST['template'];
+
+	$headers = '';
+	$headers .= 'From: ' . $name . ' <' . $user_email . '>' . "\r\n";
+	$headers .= "Reply-To: " .  $user_email . "\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=UTF-8 \r\n";
+	$message = $email_data;
+
+	$mails = mail($to, $subject, $message, $headers);
+
+	die();
+
+}
+
+
