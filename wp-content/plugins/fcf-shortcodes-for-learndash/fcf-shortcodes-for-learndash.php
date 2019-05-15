@@ -182,13 +182,14 @@ function send_email() {
 
 	$subject = 'Home Delivery User Data';
 
-	$to = get_option('admin_email');
+	// $to = get_option('admin_email');
 	$to = 'nomanaadma@gmail.com';
 
-	$user_data = json_decode($_POST['user_data']);
-	$first_name = $user_data['first_name'];
-	$last_name = $user_data['last_name'];
-	$RUT = $user_data['rut'];
+	$user_data = json_decode(  str_replace('\\', '' , $_POST['user_data']) );
+
+	$first_name = $user_data[1]->value;
+	$last_name = $user_data[2]->value;
+	$RUT = $user_data[3]->value;
 
 	$name = $first_name.' '.$last_name;
 
