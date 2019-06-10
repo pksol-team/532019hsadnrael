@@ -50,7 +50,9 @@ add_filter( 'init', function( $template ) {
     if ( isset( $_GET['virtual_image'] ) ) {
 
 		$user_id = get_current_user_id();
+		$uploaded_avatar = get_user_meta($user_id, 'user_profile_img', true);
 		$image = image_generate(get_avatar_url($user_id));
+		// $image = image_generate($uploaded_avatar);
 
         die;
     }
