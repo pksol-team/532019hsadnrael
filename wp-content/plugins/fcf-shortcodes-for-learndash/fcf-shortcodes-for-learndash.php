@@ -235,10 +235,10 @@ function send_email() {
 	$login_user = wp_get_current_user();
 	$user_email = $login_user->data->user_email;
 
-	$subject = 'Home Delivery User Data';
+	$subject = 'Datos del usuario de entrega a domicilio';
 
-	// $to = get_option('admin_email');
-	$to = 'nomanaadma@gmail.com';
+	$to = get_option('admin_email');
+//	$to = 'nomanaadma@gmail.com';
 
 	$user_data = json_decode(  str_replace('\\', '' , $_POST['user_data']) );
 
@@ -252,12 +252,12 @@ function send_email() {
 
 	$email_data = '
 		Nombre Completo: '.$first_name.' <br>
-		Apellido paterno y materno: '. $last_name .` <br>
-		RUT: `. $RUT .` <br>
-		Dirección: `. $address .` <br>
-		Teléfono: `. $phone .` <br>
+		Apellido paterno y materno: '. $last_name .' <br>
+		RUT: '. $RUT .' <br>
+		Dirección: '. $address .' <br>
+		Teléfono: '. $phone .' <br>
 		<h3>Datos del usuario</h3>
-	`;
+	';
 
 	$email_data .= str_replace('Imprime tu ', '', $_POST['template']);
 
@@ -267,6 +267,8 @@ function send_email() {
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8 \r\n";
 	$message = $email_data;
+
+	var_dump($message);
 
 	$mails = mail($to, $subject, $message, $headers);
 
