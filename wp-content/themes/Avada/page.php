@@ -86,7 +86,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php wp_reset_postdata(); ?>
 </section>
 <?php do_action( 'avada_after_content' ); ?>
+
 <?php
+
+
 get_footer();
 
 /* Omit closing PHP tag to avoid "Headers already sent" issues. */

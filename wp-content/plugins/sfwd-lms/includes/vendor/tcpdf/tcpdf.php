@@ -2025,6 +2025,29 @@ class TCPDF {
 	}
 
 	/**
+	 * Wrapper for file_exists.
+	 * Checks whether a file or directory exists.
+	 * Only allows some protocols and local files.
+	 * @param filename (string) Path to the file or directory.
+	 * @return Returns TRUE if the file or directory specified by filename exists; FALSE otherwise.
+	 * @public static
+	 */
+	public function file_exists($filename) {
+		if (strpos($filename, '://') > 0) {
+			$wrappers = stream_get_wrappers();
+			foreach ($wrappers as $wrapper) {
+				if (($wrapper === 'http') || ($wrapper === 'https')) {
+					continue;
+				}
+				if (stripos($filename, $wrapper.'://') === 0) {
+					return false;
+				}
+			}
+		}
+		return @file_exists($filename);
+	}
+
+	/**
 	 * Set the units of measure for the document.
 	 * @param $unit (string) User measure unit. Possible values are:<ul><li>pt: point</li><li>mm: millimeter (default)</li><li>cm: centimeter</li><li>in: inch</li></ul><br />A point equals 1/72 of inch, that is to say about 0.35 mm (an inch being 2.54 cm). This is a very common unit in typography; font sizes are expressed in that unit.
 	 * @public
@@ -5055,23 +5078,23 @@ class TCPDF {
 		}
 		$missing_style = false; // true when the font style variation is missing
 		// search and include font file
-		if ($this->empty_string($fontfile) OR (!file_exists($fontfile))) {
+		if ($this->empty_string($fontfile) OR (!$this->file_exists($fontfile))) {
 			// build a standard filenames for specified font
 			$tmp_fontfile = str_replace(' ', '', $family).strtolower($style).'.php';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$tmp_fontfile)) {
+			if (($fontdir !== false) AND $this->file_exists($fontdir.$tmp_fontfile)) {
 				$fontfile = $fontdir.$tmp_fontfile;
-			} elseif (file_exists($this->_getfontpath().$tmp_fontfile)) {
+			} elseif ($this->file_exists($this->_getfontpath().$tmp_fontfile)) {
 				$fontfile = $this->_getfontpath().$tmp_fontfile;
-			} elseif (file_exists($tmp_fontfile)) {
+			} elseif ($this->file_exists($tmp_fontfile)) {
 				$fontfile = $tmp_fontfile;
 			} elseif (!$this->empty_string($style)) {
 				$missing_style = true;
 				// try to remove the style part
 				$tmp_fontfile = str_replace(' ', '', $family).'.php';
-				if (($fontdir !== false) AND file_exists($fontdir.$tmp_fontfile)) {
+				if (($fontdir !== false) AND $this->file_exists($fontdir.$tmp_fontfile)) {
 					$fontfile = $fontdir.$tmp_fontfile;
-				} elseif (file_exists($this->_getfontpath().$tmp_fontfile)) {
+				} elseif ($this->file_exists($this->_getfontpath().$tmp_fontfile)) {
 					$fontfile = $this->_getfontpath().$tmp_fontfile;
 				} else {
 					$fontfile = $tmp_fontfile;
@@ -5079,7 +5102,7 @@ class TCPDF {
 			}
 		}
 		// include font file
-		if (file_exists($fontfile)) {
+		if ($this->file_exists($fontfile)) {
 			include($fontfile);
 		} else {
 			$this->Error('Could not include font definition file: '.$family.'');
@@ -5467,19 +5490,19 @@ class TCPDF {
 		++$this->n;
 		$this->PageAnnots[$page][] = array('n' => $this->n, 'x' => $x, 'y' => $y, 'w' => $w, 'h' => $h, 'txt' => $text, 'opt' => $opt, 'numspaces' => $spaces);
 		if (!$this->pdfa_mode) {
-			if ((($opt['Subtype'] == 'FileAttachment') OR ($opt['Subtype'] == 'Sound')) AND (!$this->empty_string($opt['FS'])) AND file_exists($opt['FS']) AND (!isset($this->embeddedfiles[basename($opt['FS'])]))) {
+			if ((($opt['Subtype'] == 'FileAttachment') OR ($opt['Subtype'] == 'Sound')) AND (!$this->empty_string($opt['FS'])) AND $this->file_exists($opt['FS']) AND (!isset($this->embeddedfiles[basename($opt['FS'])]))) {
 				++$this->n;
 				$this->embeddedfiles[basename($opt['FS'])] = array('n' => $this->n, 'file' => $opt['FS']);
 			}
 		}
 		// Add widgets annotation's icons
-		if (isset($opt['mk']['i']) AND file_exists($opt['mk']['i'])) {
+		if (isset($opt['mk']['i']) AND $this->file_exists($opt['mk']['i'])) {
 			$this->Image($opt['mk']['i'], '', '', 10, 10, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
-		if (isset($opt['mk']['ri']) AND file_exists($opt['mk']['ri'])) {
+		if (isset($opt['mk']['ri']) AND $this->file_exists($opt['mk']['ri'])) {
 			$this->Image($opt['mk']['ri'], '', '', 0, 0, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
-		if (isset($opt['mk']['ix']) AND file_exists($opt['mk']['ix'])) {
+		if (isset($opt['mk']['ix']) AND $this->file_exists($opt['mk']['ix'])) {
 			$this->Image($opt['mk']['ix'], '', '', 0, 0, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
 	}
@@ -7522,11 +7545,11 @@ class TCPDF {
 				$exurl = $file;
 			}
 			// check if is local file
-			if (!@file_exists($file)) {
+			if (!@$this->file_exists($file)) {
 				// encode spaces on filename (file is probably an URL)
 				$file = str_replace(' ', '%20', $file);
 			}
-			if (@file_exists($file)) {
+			if (@$this->file_exists($file)) {
 				// get image dimensions
 				$imsize = @getimagesize($file);
 			} else {
@@ -7542,8 +7565,8 @@ class TCPDF {
 					curl_setopt($cs, CURLOPT_RETURNTRANSFER, true);
 					// Modified by redcocker This code is provided by Michael Starke
 					//curl_setopt($cs, CURLOPT_FOLLOWLOCATION, true);
-					if(!ini_get("open_basedir")) { 
-						curl_setopt($cs, CURLOPT_FOLLOWLOCATION, true); 
+					if(!ini_get("open_basedir")) {
+						curl_setopt($cs, CURLOPT_FOLLOWLOCATION, true);
 					}
 					curl_setopt($cs, CURLOPT_CONNECTTIMEOUT, 5);
 					curl_setopt($cs, CURLOPT_TIMEOUT, 30);
@@ -9845,7 +9868,7 @@ class TCPDF {
 	 * @since 5.9.123 (2010-09-30)
 	 */
 	public function addTTFfont($fontfile, $fonttype='', $enc='', $flags=32, $outpath='') {
-		if (!file_exists($fontfile)) {
+		if (!$this->file_exists($fontfile)) {
 			$this->Error('Could not find file: '.$fontfile.'');
 		}
 		// font metrics
@@ -9869,7 +9892,7 @@ class TCPDF {
 			$outpath = $this->_getfontpath();
 		}
 		// check if this font already exist
-		if (file_exists($outpath.$font_name.'.php')) {
+		if ($this->file_exists($outpath.$font_name.'.php')) {
 			// this font already exist (delete it from fonts folder to rebuild it)
 			return $font_name;
 		}
@@ -11259,11 +11282,11 @@ class TCPDF {
 			$file = strtolower($file);
 			$fontfile = '';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$file)) {
+			if (($fontdir !== false) AND $this->file_exists($fontdir.$file)) {
 				$fontfile = $fontdir.$file;
-			} elseif (file_exists($this->_getfontpath().$file)) {
+			} elseif ($this->file_exists($this->_getfontpath().$file)) {
 				$fontfile = $this->_getfontpath().$file;
-			} elseif (file_exists($file)) {
+			} elseif ($this->file_exists($file)) {
 				$fontfile = $file;
 			}
 			if (!$this->empty_string($fontfile)) {
@@ -11756,11 +11779,11 @@ class TCPDF {
 			// search and get ctg font file to embedd
 			$fontfile = '';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$ctgfile)) {
+			if (($fontdir !== false) AND $this->file_exists($fontdir.$ctgfile)) {
 				$fontfile = $fontdir.$ctgfile;
-			} elseif (file_exists($this->_getfontpath().$ctgfile)) {
+			} elseif ($this->file_exists($this->_getfontpath().$ctgfile)) {
 				$fontfile = $this->_getfontpath().$ctgfile;
-			} elseif (file_exists($ctgfile)) {
+			} elseif ($this->file_exists($ctgfile)) {
 				$fontfile = $ctgfile;
 			}
 			if ($this->empty_string($fontfile)) {
@@ -20991,7 +21014,7 @@ class TCPDF {
 					preg_match_all('/([^=\s]*)[\s]*=[\s]*"([^"]*)"/', $element, $attr_array, PREG_PATTERN_ORDER);
 					$dom[$key]['attribute'] = array(); // reset attribute array
 					//while (list($id, $name) = each($attr_array[1])) {
-					foreach( $attr_array[1] as $id => $name ) {	
+					foreach( $attr_array[1] as $id => $name ) {
 						$dom[$key]['attribute'][strtolower($name)] = $attr_array[2][$id];
 					}
 					if (!empty($css)) {
@@ -22182,14 +22205,14 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 												create_function('$matches', 'global $spacew;
 												$newx = sprintf("%.2F",(floatval($matches[1]) + $spacew));
 												return "".$newx." ".$matches[2]." x*#!#*x".$matches[3].$matches[4];'), $pmid, 1);
-											*/	
-												
+											*/
+
 											$pmid = preg_replace_callback('/([0-9\.\+\-]*)[\s]('.$strpiece[1][0].')[\s]('.$strpiece[2][0].')([\s]*)/x',
-												function($matches) { 
+												function($matches) {
 													global $spacew;
 													$newx = sprintf("%.2F",(floatval($matches[1]) + $spacew));
 													return "".$newx." ".$matches[2]." x*#!#*x".$matches[3].$matches[4];
-												}, $pmid, 1);	
+												}, $pmid, 1);
 											break;
 										}
 										case 're': {
@@ -22241,7 +22264,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 													$newx = sprintf("%.2F",(floatval($matches[1]) + $x_diff));
 													$neww = sprintf("%.2F",(floatval($matches[3]) + $w_diff));
 													return "".$newx." ".$matches[2]." ".$neww." ".$matches[4]." x*#!#*x".$matches[5].$matches[6];
-												}, $pmid, 1);	
+												}, $pmid, 1);
 											break;
 										}
 										case 'c': {
@@ -22265,7 +22288,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 													$newx2 = sprintf("%.3F",(floatval($matches[3]) + $spacew));
 													$newx3 = sprintf("%.3F",(floatval($matches[5]) + $spacew));
 													return "".$newx1." ".$matches[2]." ".$newx2." ".$matches[4]." ".$newx3." ".$matches[6]." x*#!#*x".$matches[7].$matches[8];
-												}, $pmid, 1);	
+												}, $pmid, 1);
 											break;
 										}
 									}
@@ -22325,7 +22348,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 													$matches[1] = str_replace("#!#OP#!#", "(", $matches[1]);
 													$matches[1] = str_replace("#!#CP#!#", ")", $matches[1]);
 													return "[(".str_replace(chr(0).chr(32), ") ".sprintf("%.3F", $spacew)." (", $matches[1]).")]";
-												}, $pmidtemp);			
+												}, $pmidtemp);
 									if ($this->inxobj) {
 										// we are inside an XObject template
 										$this->xobjects[$this->xobjid]['outdata'] = $pstart."\n".$pmid."\n".$pend;

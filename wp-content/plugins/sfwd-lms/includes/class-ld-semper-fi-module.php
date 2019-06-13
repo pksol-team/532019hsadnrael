@@ -1598,7 +1598,6 @@ if ( ! class_exists( 'Semper_Fi_Module' ) ) {
 
 				$opts['type'] = 'multiselect';
 
-				
 			}
 
 			$args = array(

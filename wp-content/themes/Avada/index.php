@@ -17,6 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</section>
 	<?php do_action( 'avada_after_content' ); ?>
 <?php
+
 get_footer();
+
+
 
 /* Omit closing PHP tag to avoid "Headers already sent" issues. */

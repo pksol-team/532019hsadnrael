@@ -1806,13 +1806,7 @@ function learndash_user_list_columns( $columns = array() ) {
 	if ( !isset( $columns['courses'] ) ) {
 		$columns['courses'] = LearnDash_Custom_Label::get_label( 'Courses' );
 	}
-
-	/* Vadim 04-11-2019 add Start */
-	if ( !isset( $columns['learnDashId'] ) ) {
-		$columns['learnDashId'] = esc_html__('LearnDashId', 'learndash');
-	}
-	/* Vadim 04-11-2019 add End */
-
+	
 	if ( !isset( $columns['groups'] ) ) {
 		$columns['groups'] = esc_html__('Groups', 'learndash');
 	}
@@ -1848,16 +1842,6 @@ function learndash_user_list_column_content( $column_content = '', $column_name 
 					$column_content .= '<br />' . $course_names;
 			}
             break;
-
-		/* Vadim 04-11-2019 add Start */
-		case 'learnDashId' :
-			if(get_user_meta($user_id, 'learnDashId', true)) {
-				$column_content = get_user_meta($user_id, 'learnDashId', true);
-			} else {
-				$column_content = '';
-			}
-			break;
-		/* Vadim 04-11-2019 add End */
 			
         case 'groups' :
             $user_groups = learndash_get_users_group_ids( $user_id, true );

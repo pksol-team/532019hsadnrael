@@ -368,12 +368,7 @@ if ( ! function_exists( 'post2pdf_conv_post_to_pdf' ) ) {
 		// Include TCPDF
 		if ( !class_exists( 'TCPDF' ) ) {
 			require_once dirname( __FILE__ ) . '/vendor/tcpdf/config/lang/' . $config_lang . '.php';
-			
-			if ( ( defined( 'LEARNDASH_TCPDF_LEGACY' ) ) && ( LEARNDASH_TCPDF_LEGACY === true ) ) {
-				require_once dirname( __FILE__ ) . '/vendor/tcpdf/tcpdf-legacy.php';
-			} else {
-				require_once dirname( __FILE__ ) . '/vendor/tcpdf/tcpdf.php';
-			}
+			require_once dirname( __FILE__ ) . '/vendor/tcpdf/tcpdf.php';
 		}
 		
 		$learndash_certificate_options = get_post_meta( $post_data->ID, 'learndash_certificate_options', true);
