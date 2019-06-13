@@ -111,11 +111,13 @@ function get_form() {
 	$first_name = get_user_meta($user_id, 'first_name', true);
 	$last_name = get_user_meta($user_id, 'last_name', true);
 	$rut = get_user_meta($user_id, 'rut', true);
+	$address = get_user_meta($user_id, 'ct_address', true);
+	$phone = get_user_meta($user_id, 'ct_phone', true);
 
 	$congo_img = plugin_dir_url( __FILE__ ) . 'congo.jpeg';
 
 	echo '
-		<p>Congratulations! You have finished your course at Braniff Institute. Fill in the following information to print your accreditations for free or request them at home from $ 22,500:</p>
+		<p>¡Felicidades! Has finalizado tu curso en Braniff Institute Llena los siguientes datos para imprimir tus acreditaciones de manera gratuita o solicitarlas a domicilio desde $22.500:</p>
 		<img src="'.$congo_img.'" style="display: block">
 		<br>
 		<form class="profile_form">
@@ -123,12 +125,12 @@ function get_form() {
 			<input type="hidden" name="action" value="submit_profile_form">
 
 			<label for="first_name">
-				First Name
+				Nombre Completo
 				<input class="reqed" type="text" name="first_name" value="'.$first_name.'">
 			</label>
 
 			<label for="last_name">
-				Last Name
+				Apellido paterno y materno
 				<input class="reqed" type="text" name="last_name" value="'.$last_name.'">
 			</label>
 
@@ -136,9 +138,20 @@ function get_form() {
 				Rut
 				<input class="reqed" type="text" name="rut" value="'.$rut.'">
 			</label>
+
+			<label for="rut">
+				Dirección envío diploma en caso de quererlo a domicilio (verificación con Google maps)
+				<input type="text" name="ct_address" value="'.$address.'">
+			</label>
+
+			<label for="rut">
+				Teléfono:
+				<input class="reqed" type="text" name="ct_phone" value="'.$phone.'">
+			</label>
+
 			<br>
 
-			<label for="">Profile Image</label>
+			<label for="">Subir foto tuya para tu credencial (Obligatorio):</label>
 
 			<div class="profile_image_div">
 			'.$profile_img.'
@@ -147,7 +160,9 @@ function get_form() {
 			<input class="reqed" type="hidden" name="user_profile_img" value="'.$profile_img_url.'">
 			<input type="file" class="inputfile" accept="image/gif, image/jpeg, image/png" />
 
-			<input type="submit" value="Submit" style="display: block; margin-top: 11px;">
+			<strong style="display: block;">¿Seguro que toda la información esta correcta?</strong>
+			
+			<input type="submit" value="si, enviar mis datos" style="display: block; margin-top: 11px;">
 
 			<img src="http://www.springsiac.org/wp-content/plugins/embed-bible-passages/images/ajax-loading.gif" class="ajax-loader" style="width: 63px; display: none;">
 
@@ -207,6 +222,9 @@ function submit_profile_form() {
 	update_user_meta($user_id, 'rut', $data['rut']);
 	update_user_meta($user_id, 'user_profile_img', $data['user_profile_img']);
 
+	update_user_meta($user_id, 'ct_address', $data['ct_address']);
+	update_user_meta($user_id, 'ct_phone', $data['ct_phone']);
+
 	die();
 
 }
@@ -219,25 +237,29 @@ function send_email() {
 
 	$subject = 'Home Delivery User Data';
 
-	$to = get_option('admin_email');
-	// $to = 'nomanaadma@gmail.com';
+	// $to = get_option('admin_email');
+	$to = 'nomanaadma@gmail.com';
 
 	$user_data = json_decode(  str_replace('\\', '' , $_POST['user_data']) );
 
 	$first_name = $user_data[1]->value;
 	$last_name = $user_data[2]->value;
 	$RUT = $user_data[3]->value;
+	$address = $user_data[4]->value;
+	$phone = $user_data[5]->value;
 
 	$name = $first_name.' '.$last_name;
 
 	$email_data = '
-		First Name: '.$first_name.' <br>
-		Last Name: '. $last_name .` <br>
+		Nombre Completo: '.$first_name.' <br>
+		Apellido paterno y materno: '. $last_name .` <br>
 		RUT: `. $RUT .` <br>
-		<h3>User Data</h3>
+		Dirección: `. $address .` <br>
+		Teléfono: `. $phone .` <br>
+		<h3>Datos del usuario</h3>
 	`;
 
-	$email_data .= $_POST['template'];
+	$email_data .= str_replace('Imprime tu ', '', $_POST['template']);
 
 	$headers = '';
 	$headers .= 'From: ' . $name . ' <' . $user_email . '>' . "\r\n";
