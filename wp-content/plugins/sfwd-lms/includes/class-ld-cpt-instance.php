@@ -812,6 +812,7 @@ if ( ! class_exists( 'SFWD_CPT_Instance' ) ) {
 						if ( ( isset( $_GET['cert-nonce'] ) ) && ( ! empty( $_GET['cert-nonce'] ) ) && ( wp_verify_nonce( $_GET['cert-nonce'], $quiz_id . $cert_user_id . $view_user_id . $current_certificate_id ) ) ) {
 							$time              = isset( $_GET['time'] ) ? intval( $_GET['time'] ) : -1;
 							$quizinfo          = get_user_meta( $cert_user_id, '_sfwd-quizzes', true );
+
 							$selected_quizinfo = $selected_quizinfo2 = null;
 
 							if ( ! empty( $quizinfo ) ) {
@@ -830,7 +831,10 @@ if ( ! class_exists( 'SFWD_CPT_Instance' ) ) {
 								}
 							}
 
+
 							$selected_quizinfo = empty( $selected_quizinfo ) ? $selected_quizinfo2 : $selected_quizinfo;
+
+
 							if ( ! empty( $selected_quizinfo ) ) {
 								$certificate_threshold = learndash_get_setting( $selected_quizinfo['quiz'], 'threshold' );
 

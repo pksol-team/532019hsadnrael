@@ -69,6 +69,10 @@ function learndash_certificate_details( $post_id, $cert_user_id = null ) {
 
 							$certificateLink = add_query_arg( $cert_query_args, $certificateLink );
 
+							// var_dump( wp_verify_nonce($cert_query_args['cert-nonce'], $post->ID . $cert_user_id . $view_user_id . $certificate_post[$key]) );
+							// echo '<br>';
+							// var_dump($post->ID .'-'. $cert_user_id .'-'. $view_user_id .'-'. $certificate_post[$key]);
+
 						}
 
 						$certificateLink = apply_filters('learndash_certificate_details_link', $certificateLink, $certificate_post, $post->ID, $cert_user_id);
